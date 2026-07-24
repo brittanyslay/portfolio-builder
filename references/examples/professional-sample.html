@@ -1,0 +1,107 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Jordan Ellis — Product & Growth Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --paper:#FBFAF7;--paper-2:#F1EEE7;--ink:#1A1512;--ink-2:#5F574F;--ink-3:#8A8178;
+    --line:#E7E1D6;--accent:#146B5E;--accent-2:#0D4B41;
+    --sans:"Archivo",system-ui,sans-serif;--serif:"Newsreader",Georgia,serif;
+    --measure:60ch;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:900px;margin:0 auto;padding:0 40px}
+  a{color:inherit}
+  p{max-width:var(--measure)}
+  /* nav */
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+  .brand{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:-.01em}
+  .nav .links{display:flex;gap:30px;font-size:14px;font-weight:500;color:var(--ink-2)}
+  .nav .links a{text-decoration:none}.nav .links a:hover{color:var(--ink)}
+  /* hero */
+  .hero{padding:88px 0 64px}
+  .eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(42px,6.4vw,68px);line-height:1.04;letter-spacing:-.021em;margin-bottom:26px;max-width:15ch}
+  h1 em{font-style:italic;font-weight:400;color:var(--accent-2)}
+  .lead{font-size:20px;line-height:1.55;color:var(--ink-2)}
+  .cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+  .btn{font-family:var(--sans);font-size:14.5px;font-weight:600;padding:12px 22px;border-radius:6px;text-decoration:none;border:1px solid var(--ink);transition:opacity .15s}
+  .btn.solid{background:var(--ink);color:var(--paper)}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn:hover{opacity:.82}
+  /* stat row — clean, no boxes/dividers */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;padding:34px 0;border-top:1px solid var(--line);margin:64px 0 20px}
+  .stat .n{font-family:var(--serif);font-size:38px;font-weight:500;letter-spacing:-.01em;line-height:1}
+  .stat .l{font-size:13.5px;color:var(--ink-2);margin-top:8px;max-width:22ch}
+  /* sections */
+  section{padding:34px 0}
+  .s-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .s-head h2{font-family:var(--serif);font-weight:500;font-size:28px;letter-spacing:-.01em}
+  .s-head a{font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--accent);text-decoration:none}
+  .item{display:grid;grid-template-columns:1fr auto;gap:28px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .item:last-child{border-bottom:0}
+  .item:hover .it-title{color:var(--accent-2)}
+  .it-title{font-size:20px;font-weight:600;letter-spacing:-.012em;margin-bottom:6px;transition:color .15s}
+  .it-desc{font-size:15px;color:var(--ink-2);max-width:56ch}
+  .it-meta{text-align:right;white-space:nowrap;padding-top:2px}
+  .it-metric{font-family:var(--serif);font-size:26px;font-weight:500;color:var(--accent-2);line-height:1}
+  .it-tag{font-size:12.5px;color:var(--ink-3);margin-top:5px}
+  .about p{font-size:18px;line-height:1.7;color:var(--ink);margin-bottom:18px}
+  .about p .muted{color:var(--ink-2)}
+  .contact p{font-size:18px;color:var(--ink-2);margin-bottom:20px}
+  .foot{border-top:1px solid var(--line);margin-top:44px;padding:28px 0 64px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px;color:var(--ink-3)}
+  .foot a{color:var(--accent);text-decoration:none;font-weight:600}
+  .sample{background:var(--paper-2);text-align:center;font-size:12px;color:var(--ink-2);padding:9px;letter-spacing:.01em}
+  @media(max-width:620px){.stats{grid-template-columns:1fr;gap:26px}.item{grid-template-columns:1fr;gap:8px}.it-meta{text-align:left}}
+</style></head>
+<body>
+  <div class="sample">Sample portfolio · fictional persona · demonstrates the Portfolio Builder skill's default (professional) output</div>
+  <div class="wrap">
+    <nav class="nav">
+      <span class="brand">Jordan Ellis</span>
+      <div class="links"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">Product &amp; Growth · B2B SaaS</p>
+      <h1>I take products from launch to <em>scale.</em></h1>
+      <p class="lead">Fifteen years turning early traction into durable growth engines: activation, retention, and the pricing and positioning underneath. I build the team and the operating model, then leave both running.</p>
+      <div class="cta">
+        <a class="btn solid" href="#">Résumé (PDF)</a>
+        <a class="btn ghost" href="#work">Selected work</a>
+      </div>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><div class="n">15 yrs</div><div class="l">Product &amp; growth leadership</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Products taken 0&rarr;1</div></div>
+      <div class="stat"><div class="n">$40M+</div><div class="l">ARR influenced</div></div>
+    </div>
+
+    <section id="work">
+      <div class="s-head"><h2>Selected work</h2><a href="#">All work →</a></div>
+      <div class="item"><div><div class="it-title">Rebuilt onboarding as an activation engine</div><div class="it-desc">Re-architected first-run around one activation moment; instrumented the funnel and ran the experiment program that moved it.</div></div><div class="it-meta"><div class="it-metric">+34%</div><div class="it-tag">Activation · SaaS</div></div></div>
+      <div class="item"><div><div class="it-title">Repriced and repackaged for mid-market</div><div class="it-desc">Moved from seat-based to value-based pricing with a new tier structure; aligned sales, CS, and finance behind it.</div></div><div class="it-meta"><div class="it-metric">+22%</div><div class="it-tag">Net revenue · Fintech</div></div></div>
+      <div class="item"><div><div class="it-title">Stood up the growth function from zero</div><div class="it-desc">Hired the first growth team, built the experiment operating cadence, and set the north-star metric leadership still runs on.</div></div><div class="it-meta"><div class="it-metric">0→1</div><div class="it-tag">Function build</div></div></div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="s-head"><h2>About</h2></div>
+      <p>I'm most useful in the messy middle: a product with real signal that hasn't found its growth model yet. <span class="muted">I bring the rigor of a good experiment program and the judgment to know which experiments are worth running.</span></p>
+      <p class="muted">Previously led product and growth at three venture-backed SaaS companies across fintech, devtools, and vertical software. I write about pricing, activation, and building growth teams that outlast me.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="s-head"><h2>Get in touch</h2></div>
+      <p>Building or fixing a growth model? That's the conversation I like most.</p>
+      <a class="btn solid" href="#">jordan@example.com</a>
+    </section>
+
+    <div class="foot">
+      <span>© 2026 Jordan Ellis</span>
+      <span><a href="#">LinkedIn</a> · <a href="#">Writing</a></span>
+    </div>
+  </div>
+</body></html>

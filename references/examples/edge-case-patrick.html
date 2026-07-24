@@ -1,0 +1,97 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Patrick Star</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root{--sand:#F5EAD3;--sand2:#EFE0C2;--aqua:#Bfeae6;--aqua2:#7FD1CB;--sea:#1E9E93;--pink:#F28FA6;--pink-deep:#E06A88;--ink:#3A2E3C;--cream:#FFF9EF}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Fredoka",system-ui,sans-serif;color:var(--ink);background:linear-gradient(180deg,#CDEDEA 0%,#E9F0DC 45%,var(--sand) 100%);line-height:1.5;overflow-x:hidden}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  h1,h2,.disp{font-family:"Baloo 2","Fredoka",sans-serif;font-weight:800;letter-spacing:-.01em;line-height:.98}
+  .bub{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);border:2px solid rgba(255,255,255,.5)}
+  /* hero */
+  header.hero{position:relative;padding:64px 0 40px;text-align:center;overflow:hidden}
+  .eyebrow{display:inline-block;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);background:var(--cream);border:2px solid var(--aqua2);border-radius:999px;padding:7px 16px;margin-bottom:22px}
+  .star{width:132px;height:132px;margin:0 auto 10px;display:block;filter:drop-shadow(0 8px 0 rgba(224,106,136,.35))}
+  h1{font-size:clamp(64px,13vw,132px);color:var(--pink-deep);text-shadow:0 4px 0 #fff,0 6px 0 rgba(224,106,136,.25)}
+  .tag{font-family:"Fredoka";font-weight:600;font-size:clamp(18px,3.4vw,26px);color:var(--ink);max-width:20ch;margin:14px auto 0;opacity:.9}
+  .sub{font-size:16px;color:var(--sea);margin-top:12px;font-weight:600}
+  /* sections */
+  section{padding:26px 0}
+  .card{background:var(--cream);border:3px solid var(--ink);border-radius:26px;padding:26px 28px;box-shadow:0 8px 0 rgba(58,46,60,.14)}
+  .k{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink-deep);margin-bottom:6px}
+  h2{font-size:clamp(30px,5vw,44px);color:var(--ink);margin-bottom:6px}
+  .lede{font-size:18px;font-weight:500;color:#6a5c6c;margin-bottom:16px}
+  .rows{display:flex;flex-direction:column;gap:12px}
+  .row{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:2px dashed var(--sand2)}
+  .row:last-child{border-bottom:0}
+  .row .when{flex:0 0 128px;font-weight:700;color:var(--sea);font-size:14px}
+  .row .what b{font-weight:700}
+  .row .what span{color:#7a6c7c}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  .pillar{background:var(--cream);border:3px solid var(--ink);border-radius:22px;padding:20px;box-shadow:0 7px 0 rgba(58,46,60,.14)}
+  .pillar .emoji{font-size:34px}
+  .pillar h3{font-family:"Baloo 2";font-size:22px;margin:8px 0 4px;color:var(--pink-deep)}
+  .pillar p{font-size:15px;color:#6a5c6c;font-weight:500}
+  .quote{background:var(--aqua2);border:3px solid var(--ink);border-radius:26px;padding:30px;text-align:center;box-shadow:0 8px 0 rgba(30,158,147,.35)}
+  .quote p{font-family:"Baloo 2";font-weight:800;font-size:clamp(24px,4.2vw,38px);color:#0f5f57;line-height:1.06}
+  .quote small{display:block;margin-top:10px;font-family:"Fredoka";font-weight:600;color:#0f5f57;opacity:.8;font-size:15px}
+  .contact{text-align:center;padding:34px 0 10px}
+  .contact .big{font-family:"Baloo 2";font-weight:800;font-size:clamp(26px,4.5vw,40px);color:var(--pink-deep)}
+  .contact p{font-size:17px;font-weight:500;color:#6a5c6c;margin-top:6px}
+  footer{text-align:center;padding:30px 0 46px;color:#8a7c8c;font-weight:600;font-size:14px}
+  footer b{color:var(--sea)}
+  @media(max-width:640px){.pillars{grid-template-columns:1fr}.row{flex-direction:column;gap:2px}.row .when{flex:none}}
+</style></head>
+<body>
+  <header class="hero">
+    <span class="bub" style="width:60px;height:60px;left:8%;top:40px"></span>
+    <span class="bub" style="width:26px;height:26px;left:16%;top:150px"></span>
+    <span class="bub" style="width:40px;height:40px;right:12%;top:80px"></span>
+    <span class="bub" style="width:20px;height:20px;right:22%;top:180px"></span>
+    <div class="wrap">
+      <span class="eyebrow">Starfish · Bikini Bottom · Best friend (self-proclaimed)</span>
+      <svg class="star" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 4 L62 36 L96 38 L69 60 L79 94 L50 74 L21 94 L31 60 L4 38 L38 36 Z" fill="#F28FA6" stroke="#3A2E3C" stroke-width="4" stroke-linejoin="round"/><circle cx="40" cy="52" r="4" fill="#3A2E3C"/><circle cx="60" cy="52" r="4" fill="#3A2E3C"/><path d="M42 64 Q50 70 58 64" stroke="#3A2E3C" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      <h1>Patrick Star</h1>
+      <p class="tag">The inner machinations of my mind are an enigma.</p>
+      <p class="sub">I live under a rock. On purpose. It's a good rock.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="card">
+        <div class="k">Experience</div>
+        <h2>An honest résumé</h2>
+        <p class="lede">Employment: none to speak of. And I speak of it often.</p>
+        <div class="rows">
+          <div class="row"><span class="when">Once, briefly</span><span class="what"><b>The Krusty Krab.</b> <span>It did not go well. For anyone.</span></span></div>
+          <div class="row"><span class="when">One afternoon</span><span class="what"><b>Chocolate salesman.</b> <span>Results: chaotic. Chocolate: sold, somehow.</span></span></div>
+          <div class="row"><span class="when">Ongoing</span><span class="what"><b>Full-time napping & jellyfishing.</b> <span>My true calling. Unpaid. Deeply fulfilling.</span></span></div>
+          <div class="row"><span class="when">Forever</span><span class="what"><b>Professional best friend.</b> <span>Zero training. Somehow qualified.</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="k" style="text-align:center">What I'm actually good at</div>
+      <div class="pillars">
+        <div class="pillar"><div class="emoji">🩷</div><h3>Loyalty</h3><p>Best friend since forever. Ask SpongeBob. He'll cry. Good tears.</p></div>
+        <div class="pillar"><div class="emoji">🌀</div><h3>Imagination</h3><p>I once asked if mayonnaise was an instrument. I stand by the question.</p></div>
+        <div class="pillar"><div class="emoji">⭐</div><h3>Enthusiasm</h3><p>I bring 100%. Of what, unclear. But it's a full 100%.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="quote"><p>"Is mayonnaise an instrument?"</p><small>— me, asking the real questions</small></div>
+    </section>
+
+    <section class="contact">
+      <div class="big">Find me</div>
+      <p>Under the rock. 120 Conch Street, Bikini Bottom.<br/>Knock twice, then wait several hours.</p>
+    </section>
+  </main>
+
+  <footer>No metrics were fabricated in the making of this website. <b>There were none to fabricate.</b></footer>
+</body></html>
