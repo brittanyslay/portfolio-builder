@@ -2,6 +2,10 @@
 
 A Claude Code skill that builds a truthful, well-designed personal portfolio site from a real person's real history.
 
+![A portfolio page built with this skill: clean type, clear hierarchy, real projects, no fabricated credentials](references/examples/professional-sample.png)
+
+*A sample the skill produced. The generation is the easy part; the honesty gate and the design-critique loop are what make it worth using.*
+
 ## The core idea
 
 The generation is a commodity. Any model can emit a portfolio page. The hard parts are not writing HTML: they are refusing to fabricate, and iterating design until it actually looks good. So that is what this skill invests in. **The honesty gate and the taste loop are the product.**
@@ -60,3 +64,7 @@ Claude Code auto-triggers it when you ask for a portfolio or personal site, or y
 ## License
 
 MIT.
+
+---
+
+Built by [Brittany Slay](https://brittanyslay.com), a B2B marketing leader who builds AI-native tools. More free Claude skills at [brittanyslay.com/skills](https://brittanyslay.com/skills). Need a portfolio, a personal brand, or a GTM function built for real? [Get in touch](https://brittanyslay.com/#contact).
