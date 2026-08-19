@@ -28,14 +28,20 @@ Six phases, run in order. It does not design before positioning, and it does not
 
 ## Install
 
-Copy the folder into your skills directory:
+Clone into your skills directory:
 
 ```
-# User-wide
-cp -R portfolio-builder ~/.claude/skills/portfolio-builder
+# User-wide (available in every project)
+git clone https://github.com/brittanyslay/portfolio-builder.git ~/.claude/skills/portfolio-builder
 
 # Or per-project
-cp -R portfolio-builder /path/to/project/.claude/skills/portfolio-builder
+git clone https://github.com/brittanyslay/portfolio-builder.git /path/to/project/.claude/skills/portfolio-builder
+```
+
+Already have the folder locally? Copy it in instead:
+
+```
+cp -R portfolio-builder ~/.claude/skills/portfolio-builder
 ```
 
 Claude Code auto-triggers it when you ask for a portfolio or personal site, or you can invoke it directly with `/portfolio-builder`.

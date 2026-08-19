@@ -45,8 +45,8 @@ Then:
 - **De-risk on request:** strip figures that create legal or reputational exposure (e.g. a contentious former employer) even when true.
 - Match their voice from samples.
 
-### Phase 4 — Design (compose with `design-taste-frontend`)  → `references/design-systems.md`, `references/examples/`
-- **Default to a credible, professional aesthetic matched to their level.** Sober and senior is the default; a personal site's job is to be *respected* by a hiring VP / buyer / peer. Go **playful or experimental only when the audience is genuinely creative/comedic AND it serves them — never as novelty.** A cute site for a serious person actively hurts them. When in doubt: restrained, editorial, one accent. (See `references/examples/professional-sample.html` for the default bar; `edge-case-patrick.html` for when playful is actually correct.)
+### Phase 4 — Design (compose with `design-taste-frontend`)  → `references/design-guidance.md`, `references/design-systems.md`, `references/examples/`
+- **Default to a credible, professional aesthetic matched to their level.** Sober and senior is the default; a personal site's job is to be *respected* by a hiring VP / buyer / peer. Go **playful or experimental only when the audience is genuinely creative/comedic AND it serves them — never as novelty.** A cute site for a serious person actively hurts them. When in doubt: restrained, editorial, one accent. (See `references/examples/professional-sample.html` for the default bar; `references/examples/edge-case-patrick.html` for when playful is actually correct.)
 - Start from a **locked design system** in `references/design-systems.md`; pick ONE, document it in a `DESIGN.md` so the whole site is consistent and re-runnable.
 - **Critique loop:** render → self-critique against the taste checklist → get the person's reaction → iterate. Verify in-browser at **375px first** (most traffic is mobile). Never ship the first pass.
 - Distinctive **and** appropriate to their level. If they say "this doesn't feel like something a [VP/senior/etc.] would use," believe them and reset — don't defend it.
