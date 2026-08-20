@@ -66,7 +66,7 @@ Claude Code auto-triggers it when you ask for a portfolio or personal site, or y
 
 ## License
 
-Noncommercial use only (PolyForm Noncommercial 1.0.0). Commercial use requires a license from Brittany Slay. See [LICENSE.md](LICENSE.md).
+Free for noncommercial use (PolyForm Noncommercial 1.0.0), with attribution. See [LICENSE.md](LICENSE.md).
 
 ---
 
