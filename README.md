@@ -1,6 +1,8 @@
 # portfolio-builder
 
-A Claude Code skill that builds a truthful, well-designed personal portfolio site from a real person's real history — for job seekers, freelancers, advisors, founders, and operators.
+A Claude Code skill that builds a truthful, well-designed personal portfolio site from a real person's real history, for job seekers, freelancers, advisors, founders, and operators.
+
+![A generated portfolio site in a browser frame: name, positioning line, proof pills, and a "Claims ledger 14/14 verified" badge showing the honesty gate](docs/portfolio-preview.png)
 
 ![A portfolio page built with this skill: clean type, clear hierarchy, real projects, no fabricated credentials](references/examples/professional-sample.png)
 
@@ -8,9 +10,9 @@ A Claude Code skill that builds a truthful, well-designed personal portfolio sit
 
 ## What it does
 
-- **Refuses to fabricate.** Every metric, title, date, employer, and story is tagged by source and reconciled across documents. A claim the person can't defend is cut or reframed — it never ships. A pre-launch claims ledger flags anything unconfirmed and blocks the publish.
+- **Refuses to fabricate.** Every metric, title, date, employer, and story is tagged by source and reconciled across documents. A claim the person can't defend is cut or reframed. It never ships. A pre-launch claims ledger flags anything unconfirmed and blocks the publish.
 - **Runs a real design-critique loop.** Starts from a locked design system, renders, critiques its own output against a taste checklist, gets the person's reaction, and iterates. Mobile-first, verified at 375px. Built to avoid templated, AI-slop output.
-- **Positions before it designs.** A six-phase process — intake, positioning, content, design, infra, honesty gate — that reads target job descriptions and reconciles sources before writing a single line of HTML.
+- **Positions before it designs.** A six-phase process - intake, positioning, content, design, infra, honesty gate - that reads target job descriptions and reconciles sources before writing a single line of HTML.
 - **Ships the whole package.** SEO and structured data, a branded plus ATS-safe résumé, one-command deploy, and an accessibility and performance pass.
 - **Protects the person.** Discreet by default for a quiet job search, careful current-employer framing, and no exposed private contact info or secrets.
 
@@ -57,7 +59,7 @@ Claude Code auto-triggers it when you ask for a portfolio or personal site, or y
 | `references/design-guidance.md` | Taste checklist and the render → critique → iterate loop. |
 | `references/design-systems.md` | Locked, re-runnable design systems to pick one from. |
 | `references/design-and-infra.md` | SEO/GEO, structured data, résumé variants, and one-command deploy. |
-| `references/example-run.md` | A full worked run on a subject with nothing verifiable — where the skill refuses and pivots to the truth. |
+| `references/example-run.md` | A full worked run on a subject with nothing verifiable, where the skill refuses and pivots to the truth. |
 | `references/examples/` | Sample output: a professional default (`professional-sample.html`) and a playful edge case (`edge-case-patrick.html`). |
 
 **Composes with** `design-taste-frontend` for the design system and anti-slop frontend work, and the `resume-*` skills for the branded and ATS-safe résumé variants.
@@ -68,4 +70,4 @@ Noncommercial use only (PolyForm Noncommercial 1.0.0). Commercial use requires a
 
 ---
 
-Built by [Brittany Slay](https://brittanyslay.com), a B2B marketing leader who builds AI-native tools. More free Claude skills at [brittanyslay.com/skills](https://brittanyslay.com/skills). Need a portfolio, a personal brand, or a GTM function built for real? [Get in touch](https://brittanyslay.com/#contact).
+Built by [Brittany Slay](https://brittanyslay.com), a B2B marketing leader who builds AI-native tools. More free Claude skills at [brittanyslay.com/skills](https://brittanyslay.com/skills). Want an AI-native build or a GTM function built for real? [Get in touch](https://brittanyslay.com/#contact).
