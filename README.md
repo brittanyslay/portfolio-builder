@@ -2,6 +2,8 @@
 
 A Claude Code skill that builds a truthful, well-designed personal portfolio site from a real person's real history, for job seekers, freelancers, advisors, founders, and operators.
 
+![An example portfolio the skill builds: a clean editorial hero for a product designer, with a serif headline, a short intro, two CTAs, and a row of client logos.](docs/portfolio-builder.jpg)
+
 ## What it does
 
 - **Refuses to fabricate.** Every metric, title, date, employer, and story is tagged by source and reconciled across documents. A claim the person can't defend is cut or reframed. It never ships. A pre-launch claims ledger flags anything unconfirmed and blocks the publish.
