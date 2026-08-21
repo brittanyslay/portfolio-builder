@@ -21,6 +21,13 @@ Concrete artifacts to produce in Phases 4-5. Design work runs through the **desi
 - A **branded** version matching the site + an **ATS-safe** plain variant. 2 pages. Real, defensible numbers only.
 - Generate the PDF via headless Chrome `--print-to-pdf`. Link it from the site; add a GA event on download if analytics is used.
 
+## LinkedIn rewrite
+- A standard deliverable, not optional - use `references/templates/linkedin-rewrite-template.md`. Same facts, same honesty rules, reformatted for LinkedIn's Headline/About/Experience/Skills structure and character limits.
+- Flag it for a careful read before the person pastes it, especially if this is a discreet search - LinkedIn is frequently more visible to a current employer than the site link itself.
+
+## Logo sourcing
+- Try automated sourcing before asking the person for logo files: `https://logo.clearbit.com/{domain}` (bare domain, no auth) for each employer with a known domain; fall back to checking the company's own homepage for a header logo `<img>` or `apple-touch-icon`/`og:image`. Whatever comes back still needs cropping to its content bounding box and, if it lacks real alpha transparency, color-keying - the same prep as a person-supplied file (see the logo-prep recipe inline in `references/templates/default-template.html`).
+
 ## Deploy
 - git → host auto-build (Cloudflare Pages / Vercel / Netlify). Document a **one-command deploy** and the site ID/URL in the repo's `CLAUDE.md` or a `deploy.sh`.
 - Add `_redirects` (or host equivalent) for any removed/renamed URLs so nothing 404s.
