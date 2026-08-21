@@ -1,4 +1,4 @@
-# Design systems — three locked starting points
+# Design systems - three locked starting points
 
 Pick ONE, copy its tokens into `DESIGN.md`, and obey it everywhere. These are not moodboards. They are complete, opinionated systems with defined roles, so every page is consistent and re-runnable. Start from one, tune the accent if the person's brand calls for it, and lock it before you build.
 
@@ -6,7 +6,7 @@ All three share the same discipline: one accent used consistently, one radius sc
 
 ---
 
-## System A — Field Manual / Editorial
+## System A - Field Manual / Editorial
 Flat, structural, confident. Reads like a well-set operator's document: paper stock, mono labels, no decoration. Nothing glows, nothing floats.
 
 **Palette (roles)**
@@ -34,7 +34,7 @@ Flat, structural, confident. Reads like a well-set operator's document: paper st
 
 ---
 
-## System B — Modern Professional / Serif-Grotesque
+## System B - Modern Professional / Serif-Grotesque
 The default professional bar. Warm, restrained, quietly premium. This is what `references/examples/professional-sample.html` uses. Serif display carries the authority, a grotesque body keeps it modern, one deep accent does all the color work.
 
 **Palette (roles)**
@@ -48,7 +48,7 @@ The default professional bar. Warm, restrained, quietly premium. This is what `r
 | `--accent-2` | `#0D4B41` | Accent pressed, emphasized numbers |
 | `--line` | `#E7E1D6` | Hairline rules between sections and rows |
 
-**Type**: `Newsreader` (serif) 400/500 for display, headings, and stat numbers, italic for emphasis words. `Archivo` 400–700 for body, nav, buttons, eyebrows. Set a fixed `--measure` (about `60ch`) for all body copy.
+**Type**: `Newsreader` (serif) 400/500 for display, headings, and stat numbers, italic for emphasis words. `Archivo` 400-700 for body, nav, buttons, eyebrows. Set a fixed `--measure` (about `60ch`) for all body copy.
 
 **Spacing / radius / shadow**
 - Radius: `6px` on buttons and any rare card. Everything else is hairline-ruled, not boxed.
@@ -62,7 +62,7 @@ The default professional bar. Warm, restrained, quietly premium. This is what `r
 
 ---
 
-## System C — Clean SaaS / Minimal
+## System C - Clean SaaS / Minimal
 Bright, precise, product-grade. White surfaces, near-navy ink, one saturated accent, soft depth. Reads like a well-built product marketing page.
 
 **Palette (roles)**
@@ -79,9 +79,9 @@ Bright, precise, product-grade. White surfaces, near-navy ink, one saturated acc
 **Type**: a clean grotesque. `Archivo` or `Hanken Grotesk` for both display and body, weight carrying the hierarchy. Do NOT reach for Inter as the default (see the AI-tell note below).
 
 **Spacing / radius / shadow**
-- Radius: `8–10px` on cards, buttons, inputs. Consistent scale.
+- Radius: `8-10px` on cards, buttons, inputs. Consistent scale.
 - Shadow: soft and single-layer, e.g. `0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.10)`. One elevation, used consistently. No stacked, colored, or heavy shadows.
-- Generous padding inside cards (`24–32px`). Roomy line-height.
+- Generous padding inside cards (`24-32px`). Roomy line-height.
 - One accent, applied to the primary action and one or two key numbers only.
 
 **When to use**: SaaS founders, technical operators, product and platform people, anyone whose audience lives in modern software UIs and reads "clean and current" as competence.

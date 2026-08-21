@@ -1,15 +1,15 @@
-# Example run — the default bar and the edge case
+# Example run - the default bar and the edge case
 
 Two bundled examples set the range. Read both before you design: one shows the professional default you should hit almost every time, the other shows what the honesty gate does when there is genuinely nothing impressive to say.
 
-## Primary — the professional default
+## Primary - the professional default
 `references/examples/professional-sample.html` (Jordan Ellis, fictional persona, System B)
 
 This is the bar. Sober, senior, warm-but-restrained. Serif display, grotesque body, one deep-teal accent, hairline rules, no shadows, no motion. Every number is presented as if it traces to a record. A hiring VP, a buyer, or a peer would respect it on sight.
 
 Default to this register for almost everyone. When you are unsure how playful to be, this is the answer: restrained and level-appropriate. The work leads; the design gets out of the way.
 
-## Secondary / edge case — when there is nothing to verify
+## Secondary / edge case - when there is nothing to verify
 `references/examples/edge-case-patrick.html` (Patrick Star, fictional, System-of-its-own)
 
 The subject has no verifiable career: no metrics, no titles, no employers that survive a reconciliation pass. The wrong move is to invent a plausible-sounding résumé to fill the space. That is exactly the fabrication the honesty gate exists to stop.
