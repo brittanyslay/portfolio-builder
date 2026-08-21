@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.1 - 2026-08-20
+
+Fixed the new preview image: the placeholder headshot was a flat solid-color box with the demo persona's initials, which read as its own crude design element rather than an obvious "photo goes here" placeholder. Replaced with a generic person-silhouette icon. Also removed an unnecessary gendered pronoun ("his") that had crept into the demo copy for a fictional, unspecified persona - inconsistent with this skill's own intake rule to ask pronouns rather than infer them.
+
 ## v1.1.0 - 2026-08-20
 
 **Behavior change:** Phase 4 (Design) now defaults to a locked, reusable template instead of picking one of three bespoke design systems and composing from scratch. If you pulled this skill before this version and it composed a custom design system per person, that is no longer the default path - see `references/design-systems.md`, now framed as the escape hatch for when the template genuinely doesn't fit.
