@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.2 - 2026-08-20
+
+Pulled the README preview image for now while it gets reconsidered further. `docs/portfolio-preview.png` is still in the repo, just not currently linked from the README.
+
 ## v1.1.1 - 2026-08-20
 
 Fixed the new preview image: the placeholder headshot was a flat solid-color box with the demo persona's initials, which read as its own crude design element rather than an obvious "photo goes here" placeholder. Replaced with a generic person-silhouette icon. Also removed an unnecessary gendered pronoun ("his") that had crept into the demo copy for a fictional, unspecified persona - inconsistent with this skill's own intake rule to ask pronouns rather than infer them.

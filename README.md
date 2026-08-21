@@ -2,10 +2,6 @@
 
 A Claude Code skill that builds a truthful, well-designed personal portfolio site from a real person's real history, for job seekers, freelancers, advisors, founders, and operators.
 
-![The actual default template rendered with placeholder content: gradient headline, single-color logo wall, real typography, no rounded pill badges or generic gradients](docs/portfolio-preview.png)
-
-*A real screenshot of `references/templates/default-template.html`, not a mockup. The generation is the easy part; the honesty gate and the design-critique loop are what make it worth using.*
-
 ## What it does
 
 - **Refuses to fabricate.** Every metric, title, date, employer, and story is tagged by source and reconciled across documents. A claim the person can't defend is cut or reframed. It never ships. A pre-launch claims ledger flags anything unconfirmed and blocks the publish.
