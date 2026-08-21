@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.4 - 2026-08-21
+
+Corrected the logo-wall guidance added in v1.1.3: it recommended `repeat(N, 132px)` (fixed-pixel grid columns) for a known logo count, which turned out to be a real bug when actually shipped - 3 columns at 132px each only spans about half of a ~1160px-wide panel, leaving the rest as dead empty space. Corrected to `repeat(N, 1fr)` (fluid columns), which fills the real container width while keeping each logo's own box a fixed height.
+
 ## v1.1.3 - 2026-08-21
 
 Normalized logo-wall sizing in the default template: every `.logo` now gets the same fixed box (previously fixed height + natural width, which let a compact icon-mark render at roughly a sixth the width of a wide wordmark at the same height - a real, user-flagged problem). `mask-size:contain` fits each logo's real shape into that shared box, the standard "logo wall" pattern. The `--ar` custom property is no longer used for sizing; removed from the markup and the logo-prep recipe.

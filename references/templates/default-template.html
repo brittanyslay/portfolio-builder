@@ -144,10 +144,16 @@
      row matters too: with a fixed box size, an incomplete last row (say 6 logos wrapping 3-per-row
      leaves none, but 7 logos at 3-per-row leaves a lone item on row 3) reads fine when centered,
      but reads like a bug when left-aligned and alone. If the logo count is fixed and known, an
-     explicit grid with a column count that evenly divides it (e.g. `repeat(3, 132px)` for exactly
-     6 logos) is even more reliable than relying on flex-wrap's centering. Each source PNG needs
-     REAL alpha transparency and should be cropped to its own content bounding box (not left with
-     excess canvas padding) -- see the logo-prep note below. */
+     explicit grid with a column count that evenly divides it is more reliable than flex-wrap's
+     centering -- but use `repeat(N, 1fr)` (fluid columns), NOT `repeat(N, 132px)` (fixed-pixel
+     columns). Fixed-pixel columns was a real, shipped bug on an actual build using this template:
+     3 columns at 132px each only spans ~500px, so on a ~1160px-wide panel the grid left roughly
+     half the row as dead empty space on the right, the same class of bug as the hero-portrait
+     dead-space issue elsewhere in this file. `repeat(N, 1fr)` with `justify-items:start` keeps
+     each logo the same box height while letting the grid track itself fill the real container
+     width, so the row spans its actual available width instead of a fixed pixel guess. Each
+     source PNG needs REAL alpha transparency and should be cropped to its own content bounding
+     box (not left with excess canvas padding) -- see the logo-prep note below. */
   .logos{padding-block:clamp(1.6rem,4vw,2.4rem);border-top:1px solid var(--line)}
   .logos p{margin:0 0 1.2rem}
   .logo-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;column-gap:clamp(2rem,5vw,3.6rem);row-gap:1.6rem}
