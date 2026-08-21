@@ -133,14 +133,27 @@
   /* Brand/logo wall: single-color CSS mask silhouettes, not full-color raster logos. This
      reads as considered ("all one brand voice") rather than a busy multi-color row, and sidesteps
      wildly inconsistent visual weight between simple wordmarks and busy full-color emblems.
-     Each source PNG needs REAL alpha transparency and should be cropped to its own content
-     bounding box (not left with excess canvas padding) -- see the logo-prep note below. */
+     Every logo gets the SAME fixed box (width/height below) and mask-size:contain scales each
+     shape to fit within it -- this is the standard "logo wall" pattern and is deliberately NOT
+     "fixed height, natural width." A fixed height alone let a compact icon-mark render at maybe
+     30px wide right next to a wordmark rendered at 200px wide, a 6x difference in visual weight
+     from the same box height -- a real, user-flagged problem. A shared box won't make every logo
+     perfectly identical in size (a very wide wordmark will still end up shorter within the box,
+     width-constrained rather than height-constrained), but it's much closer to equal, and it's
+     the same tradeoff real "brands we've worked with" rows make. `justify-content:center` on the
+     row matters too: with a fixed box size, an incomplete last row (say 6 logos wrapping 3-per-row
+     leaves none, but 7 logos at 3-per-row leaves a lone item on row 3) reads fine when centered,
+     but reads like a bug when left-aligned and alone. If the logo count is fixed and known, an
+     explicit grid with a column count that evenly divides it (e.g. `repeat(3, 132px)` for exactly
+     6 logos) is even more reliable than relying on flex-wrap's centering. Each source PNG needs
+     REAL alpha transparency and should be cropped to its own content bounding box (not left with
+     excess canvas padding) -- see the logo-prep note below. */
   .logos{padding-block:clamp(1.6rem,4vw,2.4rem);border-top:1px solid var(--line)}
   .logos p{margin:0 0 1.2rem}
-  .logo-row{display:flex;flex-wrap:wrap;align-items:center;column-gap:clamp(2rem,5vw,3.6rem);row-gap:1.6rem}
-  .logo-row .logo{display:block;height:34px;width:calc(34px * var(--ar));background-color:var(--ink-2);-webkit-mask:var(--url) center/contain no-repeat;mask:var(--url) center/contain no-repeat;opacity:.85;transition:opacity .2s ease,background-color .2s ease}
+  .logo-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;column-gap:clamp(2rem,5vw,3.6rem);row-gap:1.6rem}
+  .logo-row .logo{display:block;width:132px;height:46px;background-color:var(--ink-2);-webkit-mask:var(--url) center/contain no-repeat;mask:var(--url) center/contain no-repeat;opacity:.85;transition:opacity .2s ease,background-color .2s ease}
   .logo-row .logo:hover{opacity:1;background-color:var(--ink)}
-  @media(max-width:640px){.logo-row{column-gap:1.6rem;row-gap:1.3rem}.logo-row .logo{height:26px;width:calc(26px * var(--ar))}}
+  @media(max-width:640px){.logo-row{column-gap:1.6rem;row-gap:1.3rem}.logo-row .logo{width:104px;height:36px}}
 
   .about-split{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.6rem,4vw,3rem);align-items:start;padding-block:clamp(2rem,5vw,3.4rem);border-top:1px solid var(--line)}
   .about-split h2{font-family:var(--sans);font-weight:800;font-size:clamp(1.6rem,3.2vw,2.3rem);letter-spacing:-.02em;line-height:1.18;margin:0;text-wrap:balance}
@@ -285,7 +298,7 @@
          matches how the person actually relates to these companies (built for, sold into,
          worked at) rather than a generic "trusted by" SaaS phrase (this isn't a testimonial wall). -->
     <div class="logo-row stagger">
-      <span class="logo" role="img" aria-label="{{COMPANY_NAME}}" style="--ar:{{ASPECT_RATIO_of_the_cropped_logo_width_over_height}};--url:url(assets/logos/mono/{{company-slug}}.png)"></span>
+      <span class="logo" role="img" aria-label="{{COMPANY_NAME}}" style="--url:url(assets/logos/mono/{{company-slug}}.png)"></span>
     </div>
   </section>
   <!--
@@ -300,10 +313,9 @@
     3. Crop to content bounding box: im.getbbox() then im.crop(bbox). Skipping this leaves
        inconsistent padding baked into each logo, making some look tiny next to others even at
        the same CSS height.
-    4. Record the cropped width/height ratio -> that's the --ar value above. The CSS gives every
-       logo the same HEIGHT and lets width follow naturally from its own real proportions --
-       do not force uniform width, a wordmark and a compact icon-mark are supposed to differ in
-       width at matched height (this matches real "brands I've worked with" rows in the wild).
+    4. No aspect-ratio bookkeeping needed at this step -- every logo shares the same fixed
+       `.logo` box (see the CSS comment above) and mask-size:contain fits each shape into it
+       automatically, regardless of its own proportions.
     5. Save into assets/logos/mono/ as a NEW file -- never overwrite the original supplied asset.
   -->
 
