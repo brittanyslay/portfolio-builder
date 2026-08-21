@@ -29,7 +29,9 @@ Before publish, produce `claims-ledger.md`: one row for **every claim on the sit
 - [ ] Design passed the **critique loop** (not round one). Distinctive and level-appropriate. Verified at 375px.
 
 ## Privacy & security
-- [ ] No personal contact info exposed beyond what the person chose to share.
+- [ ] **No raw email address on the public site** (visible mailto link, footer text, or in the JSON-LD `email` field) unless the person explicitly asked for it to be public. Route the site's contact CTA to LinkedIn or a form instead. This is a different surface than the résumé PDF, which correctly *does* include the email - a résumé is meant to be handed directly to an employer; the public site (even `noindex`) is reachable by anyone with the link. Don't apply the résumé's rule to the site or vice versa.
+- [ ] No other personal contact info exposed beyond what the person chose to share.
+- [ ] **Confidential/discreet search: the git repo is private by default.** Don't rely on `noindex` alone to keep a job search quiet - a public repo makes the dossier, positioning notes, and full history readable to anyone who finds it, employer included.
 - [ ] No secrets, tokens, API keys, or private data in a public repo or shipped bundle.
 - [ ] Cookie/consent and analytics handled privately (consent-gated, minimal).
 

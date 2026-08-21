@@ -1,4 +1,6 @@
-# Design systems - three locked starting points
+# Design systems - escape hatch for bespoke builds
+
+**This file is no longer the default path.** The default is `references/templates/default-template.html` plus a palette from `references/templates/palettes.md` and a font pairing from `references/templates/fonts.md` - see SKILL.md Phase 4. Reach for this file only when the template genuinely doesn't fit the person's register (see the escape-hatch note in SKILL.md).
 
 Pick ONE, copy its tokens into `DESIGN.md`, and obey it everywhere. These are not moodboards. They are complete, opinionated systems with defined roles, so every page is consistent and re-runnable. Start from one, tune the accent if the person's brand calls for it, and lock it before you build.
 

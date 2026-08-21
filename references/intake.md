@@ -29,6 +29,9 @@ For each role, capture and tag:
 - Anything explicitly **off-limits** to publish.
 - Risk tolerance: bold claims vs. conservative.
 
+## 4b. Employer background research (adds credible color, not filler)
+For each employer on the site, research and verify their real public background: founding year, notable facts (an acquisition, a patent, a signature product), rough size/scale, and where relevant a real, citable source URL. This does two things: it lets the site contextualize an unfamiliar employer for a reader who's never heard of it ("Dallas-based luxury hotel chain, 51 properties" tells a reader something a bare name doesn't), and it demonstrates the site wasn't assembled from the résumé alone. Keep the citation URL in `dossier.md` next to the fact - treat this the same as any other 📁-tagged claim, sourced independently of the person.
+
 ## 5. Assets
 - Headshot(s), logo/monogram, brand colors/fonts if any, existing domain + host, analytics, past site to preserve or overhaul.
 - Testimonials/references they can actually use (with permission).

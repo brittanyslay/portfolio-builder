@@ -11,7 +11,7 @@ A Claude Code skill that builds a truthful, well-designed personal portfolio sit
 ## What it does
 
 - **Refuses to fabricate.** Every metric, title, date, employer, and story is tagged by source and reconciled across documents. A claim the person can't defend is cut or reframed. It never ships. A pre-launch claims ledger flags anything unconfirmed and blocks the publish.
-- **Runs a real design-critique loop.** Starts from a locked design system, renders, critiques its own output against a taste checklist, gets the person's reaction, and iterates. Mobile-first, verified at 375px. Built to avoid templated, AI-slop output.
+- **Starts from a real, reusable template, not a from-scratch design exercise.** The default template already survived a full brutal critique (design, copy/positioning, technical consistency) plus multiple rounds of live user feedback; color and font are the only open choices (including deriving a palette straight from the person's own headshot photo). It still gets critiqued and iterated per person - mobile-first, verified at 375px - because content-specific issues don't come free just because the layout is proven.
 - **Positions before it designs.** A six-phase process - intake, positioning, content, design, infra, honesty gate - that reads target job descriptions and reconciles sources before writing a single line of HTML.
 - **Ships the whole package.** SEO and structured data, a branded plus ATS-safe résumé, one-command deploy, and an accessibility and performance pass.
 - **Protects the person.** Discreet by default for a quiet job search, careful current-employer framing, and no exposed private contact info or secrets.
@@ -56,8 +56,11 @@ Claude Code auto-triggers it when you ask for a portfolio or personal site, or y
 | `SKILL.md` | The full six-phase process, operating principles, and refusal rules. |
 | `references/intake.md` | Ingest-and-reconcile pass: source-tagged dossier, contradiction diff, unsupported-claim detection. |
 | `references/honesty-gate.md` | The hard pre-publish checklist and claims-ledger rules. |
+| `references/templates/default-template.html` | The default, locked, brutally-critiqued page template - copy it, fill in the placeholders. |
+| `references/templates/palettes.md` | Curated color palette options, including deriving one from the person's own photo. |
+| `references/templates/fonts.md` | Curated font-pairing options. |
 | `references/design-guidance.md` | Taste checklist and the render → critique → iterate loop. |
-| `references/design-systems.md` | Locked, re-runnable design systems to pick one from. |
+| `references/design-systems.md` | Escape hatch: locked, re-runnable bespoke design systems, for when the default template genuinely doesn't fit. |
 | `references/design-and-infra.md` | SEO/GEO, structured data, résumé variants, and one-command deploy. |
 | `references/example-run.md` | A full worked run on a subject with nothing verifiable, where the skill refuses and pivots to the truth. |
 | `references/examples/` | Sample output: a professional default (`professional-sample.html`) and a playful edge case (`edge-case-patrick.html`). |
