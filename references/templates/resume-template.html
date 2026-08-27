@@ -63,7 +63,9 @@
   .head { display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
           padding-bottom:14px; margin-bottom:18px; border-bottom:2px solid var(--ink); }
   .name { font-weight:800; font-size:var(--fs-name); letter-spacing:-.03em; line-height:1; }
-  .name span { font-weight:500; font-size:var(--fs-role); color:var(--grey); letter-spacing:0; }
+  /* nowrap so a post-nominal list (", DPhil, FRSA") never splits its comma onto a long name's
+     last line; it wraps as one unit or not at all */
+  .name span { font-weight:500; font-size:var(--fs-role); color:var(--grey); letter-spacing:0; white-space:nowrap; }
   .title { font-weight:700; font-size:var(--fs-meta); letter-spacing:.16em; text-transform:uppercase;
            color:var(--accent); margin-top:9px; }
   .contact { text-align:right; font-size:var(--fs-meta); font-weight:500; color:var(--ink-2);
@@ -108,6 +110,9 @@
 <body>
   <header class="head">
     <div>
+      <!-- Post-nominals only (MBA, PMP, PE, PhD), kept short. A long credential list belongs on
+           the Education line, not here. If there is no suffix, DELETE the whole <span>, ...</span>
+           so the name doesn't render a trailing comma. -->
       <div class="name">{{FULL_NAME}}<span>, {{CREDENTIAL_OR_SUFFIX}}</span></div>
       <div class="title">{{ONE_LINE_POSITIONING}}</div>
     </div>
@@ -161,6 +166,9 @@
     <b>Stack:</b> {{TOOLS_MIDDOT_SEPARATED}}
   </div>
 
+  <!-- Omit any label whose value is empty. Never ship "Recognition:" or "Certifications &
+       Training:" (or a competency group) with nothing, or a placeholder dash, after it -
+       delete the whole line instead. -->
   <h2>Education &amp; Recognition</h2>
   <p class="edu"><b>{{DEGREE}}</b>, {{SCHOOL}} &nbsp;·&nbsp; {{ADDITIONAL_DEGREES_OR_CERTS}}<br>
   <b>Recognition:</b> {{AWARDS_MIDDOT_SEPARATED}}<br>
