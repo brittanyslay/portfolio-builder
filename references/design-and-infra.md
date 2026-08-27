@@ -32,7 +32,7 @@ await page.evaluate(() => document.fonts.ready);
 await page.pdf({ path: 'resume.pdf', preferCSSPageSize: true, printBackground: true });
 ```
 Then verify, at the true print width (7.4in ≈ 710px for US-Letter with the template's 0.55in side margins):
-- **Page count:** open the PDF bytes and count `/Type /Page` minus `/Type /Pages` - must be ≤ 2. If it's 3, nudge all five type-scale tokens down together (never add a size) or trim copy; re-render.
+- **Page count:** open the PDF bytes and count `/Type /Page` minus `/Type /Pages` - must be ≤ 2. If it's 3: a *borderline* overflow (a few lines past two pages) comes back with a small nudge to all five type-scale tokens in lockstep - but hold body text at **≈9pt or larger**; below that it stops reading as a résumé. Content that is genuinely three pages of material must be **cut**, not shrunk (a senior with a decade of roles doesn't need every bullet - keep the strongest). The nudge is for the last few lines, never for forcing a third page of content into two.
 - **Widows:** for each `<li>`, `.summary`, `.emeta`, `.comp`, `.edu`, use `Range.getClientRects()` to find the last visual line and check it holds more than one word. A single-word last line is a widow - reword or add a `&nbsp;` between the last two words. Do not judge this from a screenshot; measure it.
 - **Orphans:** confirm no section header sits alone at the foot of a page and no role title is separated from its bullets (the `.job{break-inside:avoid}` + `h2{break-after:avoid}` rules handle this, but a content change can still push a block - re-verify after every copy edit).
 - Link the PDF from the site; add a GA event on download if analytics is used.

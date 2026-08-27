@@ -56,7 +56,7 @@
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   /* text-wrap:pretty + hyphens:none => no single-word last lines, no mid-word hyphen breaks (rule 4) */
   body { font-family:var(--sans); color:var(--ink); font-size:var(--fs-body); line-height:1.4;
-         text-wrap:pretty; -webkit-hyphens:none; hyphens:none; }
+         text-wrap:pretty; -webkit-hyphens:none; hyphens:none; overflow-wrap:break-word; }
   b { font-weight:700; color:var(--ink); }
 
   /* header */
@@ -110,10 +110,10 @@
 <body>
   <header class="head">
     <div>
-      <!-- Post-nominals only (MBA, PMP, PE, PhD), kept short. A long credential list belongs on
-           the Education line, not here. If there is no suffix, DELETE the whole <span>, ...</span>
-           so the name doesn't render a trailing comma. -->
-      <div class="name">{{FULL_NAME}}<span>, {{CREDENTIAL_OR_SUFFIX}}</span></div>
+      <!-- Post-nominals only (MBA, PMP, PE, PhD), kept short; a long credential list belongs on
+           the Education line. The comma lives INSIDE the token so an empty value can't leave a
+           dangling comma: set {{CREDENTIAL_SUFFIX}} to "" for none, or to <span>, MBA</span>. -->
+      <div class="name">{{FULL_NAME}}{{CREDENTIAL_SUFFIX}}</div>
       <div class="title">{{ONE_LINE_POSITIONING}}</div>
     </div>
     <div class="contact">
