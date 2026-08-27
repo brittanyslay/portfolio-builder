@@ -34,3 +34,34 @@ Sober, senior, credible is the default (see `references/examples/professional-sa
 - One content **measure** for body text across all sections (e.g. `--measure: 62ch`); ragged, inconsistent widths read as misalignment even when left edges match.
 - One accent color, one corner-radius scale, one shadow rule, one type scale - applied everywhere. Audit before shipping.
 - Verify at **375px first**, then scale up.
+
+## Résumé typography (the locked résumé standard)  → `references/templates/resume-template.html`
+The résumé is a separate, print/PDF deliverable, and it has its own locked type system. Use the
+template; do not re-derive these. Seven rules, all learned the hard way and all verifiable:
+
+1. **One font family, two absolute max.** A résumé needs no display face; let one sans carry
+   everything and let weight do the hierarchy. Pick from `references/templates/fonts.md`.
+2. **One type scale, exactly five sizes** (name / role title / body / section header / meta).
+   Most résumés read as one gray mass because they scatter nine near-identical sizes across a
+   half-point band. Define the five as tokens and reuse them. To fit a tight 1 or 2 pages,
+   scale all five in lockstep - never add a sixth ad-hoc size.
+3. **Clear section breaks.** Each section header is a strong rule with real air above it, so
+   Experience / Earlier / Skills / Education are unmistakably separate blocks.
+4. **No widows, no orphans - be ruthless.** Nothing in a group sits alone.
+   - *Line level:* `text-wrap:pretty` + `hyphens:none`, and wrap any hyphenated compound
+     (`tier-1/2`, `space-operations`) in `white-space:nowrap` so no token or lone word dangles
+     on its own line.
+   - *Block level:* weld each role title to its bullets (`.job{break-inside:avoid}`), never let
+     a bullet or a one-line row split across a page (`li`/`.erow{break-inside:avoid}`), and never
+     let a section header end a page (`h2{break-after:avoid}`).
+   - **Verify in a real browser** with `Range.getClientRects()` line-grouping, not by eyeballing
+     a screenshot - a single-word last line is invisible until you measure for it.
+5. **Disciplined bold.** Bold marks metrics and marquee proper nouns only (a famous employer, a
+   real award). When every phrase is bold, nothing is - grey descriptor text is never bold.
+6. **Two pages, ATS-safe.** Real selectable text (never an image of text), one column, standard
+   section headers, right-aligned consistent dates. Render to PDF via headless print.
+7. **Truth only.** Downstream of the honesty gate: every metric, title, date, and employer
+   traces to the dossier. An unverifiable number is cut, not typeset.
+
+**Privacy:** the template stays tokenized. Never commit a real person's filled-in résumé (their
+name, employers, metrics, contact) to a shared or public repo - fill it locally, deliver the PDF.
