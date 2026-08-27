@@ -50,6 +50,7 @@ Ask these before typesetting the résumé; each one, left unasked, is a predicta
 - **Dates format + the awkward bits:** months-and-years or years-only; and decide up front how to handle any **employment gaps or short stints** - the honest options are grouping, year-only dates, or a brief framing line. Surfacing this early avoids an uncomfortable late reveal and a scramble.
 - **What must lead, and what they're tired of leading with.** The one role/achievement that has to be first, and anything they've overused. Prevents a reorder cycle after the first draft.
 - **ATS keyword lock:** from the target JDs, confirm the 5-10 exact phrases/skills that must appear verbatim. Agreeing the keyword set now makes it a one-pass match instead of a tuning loop.
+- **Target market / document type:** which country/market are they applying into, and do they need a **US-style résumé** or a **CV**? The default template is a US résumé (Letter, no photo, no personal details, 1-2 pages); much of Europe, Latin America, Asia, and academia expect a CV (often A4, with a photo and personal details, running longer). Confirm this before typesetting - shipping the wrong document type is a category error, not a tweak.
 - **Where the filled file lives:** the résumé carries private data (full name, employers, metrics, contact). Confirm it stays local / private and is delivered as a PDF - never committed to a shared or public repo.
 
 ## Verification & reconciliation
