@@ -44,7 +44,9 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    /* palette -- keep to ink + one accent; verify accent hits WCAG AA on white before shipping */
+    /* palette -- keep to ink + one accent. The accent carries readable TEXT here (company names,
+       the positioning line), not just decoration, so it MUST pass WCAG AA (>=4.5:1) on white --
+       compute it, don't eyeball. A too-light accent makes real content fail contrast. */
     --ink:{{INK_HEX}}; --ink-2:{{INK_2_HEX}}; --grey:{{GREY_HEX}};
     --accent:{{ACCENT_HEX}}; --line:{{LINE_HEX}};
     /* ONE font family (rule 1) */
@@ -113,7 +115,7 @@
       <!-- Post-nominals only (MBA, PMP, PE, PhD), kept short; a long credential list belongs on
            the Education line. The comma lives INSIDE the token so an empty value can't leave a
            dangling comma: set {{CREDENTIAL_SUFFIX}} to "" for none, or to <span>, MBA</span>. -->
-      <div class="name">{{FULL_NAME}}{{CREDENTIAL_SUFFIX}}</div>
+      <h1 class="name">{{FULL_NAME}}{{CREDENTIAL_SUFFIX}}</h1>
       <div class="title">{{ONE_LINE_POSITIONING}}</div>
     </div>
     <div class="contact">
