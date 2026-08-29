@@ -2,6 +2,8 @@
 
 The template takes two font roles: `--sans` (nav, body, headings, buttons - does almost everything) and `--serif` (italic only, used for exactly one emphasis word in the hero headline and the pull-quote). Both load via a single Google Fonts `<link>`.
 
+> **The résumé is different: one font only.** `references/templates/resume-template.html` uses a single `--sans` family and no serif role at all - a résumé needs no display face, and weight carries the whole hierarchy. Pick the résumé's font from the `--sans` column below; do **not** carry the site's serif-italic emphasis treatment onto the résumé.
+
 ## Default - Libre Franklin + Lora
 
 ```html

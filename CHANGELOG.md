@@ -1,5 +1,51 @@
 # Changelog
 
+## v1.3.0 - 2026-08-29
+
+Design-intake and palette upgrades aimed at the real goal: a distinct-looking portfolio
+that needs very minimal edits, built fast from a LinkedIn profile + a résumé - not a
+from-scratch interrogation, and not a template that makes everyone's site look the same.
+
+- **Ask for direction, not colors.** The taste question no longer asks "what colors do you
+  want?" (a top rework loop - people name a hex, it reads wrong, you start over). It now asks
+  for **mood, feel, and vibe** (warm/cool, calm/bold, editorial/techy/expressive, the
+  three-second impression, brands whose feel they admire) and the skill **derives the actual
+  palette itself**.
+- **Portrait-derived palette is now the default, not an option.** Phase 4 and `palettes.md`
+  default to building the palette from the person's own profile photo - either their literal
+  sampled colors, or a **calibrated harmonized variation** (analogous or restrained
+  complementary, tuned to pass WCAG AA) when the photo is neutral/low-contrast. This is both
+  the anti-slop move and the anti-sameness move: two people never get the same palette.
+- **"Do not let every build look the same."** New Phase 4 rule: keep the proven skeleton but
+  vary the three levers that make each build distinct - portrait-derived palette, a font
+  pairing chosen to the person's vibe, and a varied hero/accent treatment.
+- **Fast path (LinkedIn + résumé → near-final draft).** New SKILL.md section: ingest both,
+  auto-build the dossier, derive everything derivable (palette, font, positioning, logos), ask
+  only the handful of things you genuinely can't derive, then one critique + honesty pass. The
+  honesty gate is unchanged.
+
+## v1.2.0 - 2026-08-27
+
+Added a locked **résumé** template to sit alongside the site template. Phase 5 previously
+delegated the résumé vaguely to "the resume-* skills" with no actual artifact in the repo;
+now `references/templates/resume-template.html` is a complete, tokenized, print/PDF US-Letter
+résumé with its own locked type system, learned from a full typographic critique pass
+(resume-writer / designer / hiring-manager / HR / ATS lenses):
+
+- **One font family** (two max) on **one five-size type scale** - replaces the nine
+  near-identical sizes that make most résumés read as a single gray mass.
+- **Ruthless widow/orphan control:** `text-wrap:pretty` + `hyphens:none`, `nowrap` on
+  hyphenated compounds, and block-level group integrity (`.job` welds a role title to its
+  bullets, rows and bullets never split, a section header never ends a page). Verify with
+  `Range.getClientRects()` line-grouping, not by eye.
+- **Clear section breaks**, **disciplined bold** (metrics and marquee names only), **2 pages,
+  ATS-safe**, and truth-only (downstream of the honesty gate).
+
+The seven rules are documented in the template header and in `references/design-guidance.md`
+(new "Résumé typography" section); SKILL.md Phase 5 now points at the template. Privacy rule
+reinforced: the template stays tokenized - a real person's filled-in résumé is never committed
+to a shared or public repo; fill it locally and deliver the PDF.
+
 ## v1.1.4 - 2026-08-21
 
 Corrected the logo-wall guidance added in v1.1.3: it recommended `repeat(N, 132px)` (fixed-pixel grid columns) for a known logo count, which turned out to be a real bug when actually shipped - 3 columns at 132px each only spans about half of a ~1160px-wide panel, leaving the rest as dead empty space. Corrected to `repeat(N, 1fr)` (fluid columns), which fills the real container width while keeping each logo's own box a fixed height.

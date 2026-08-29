@@ -2,13 +2,19 @@
 
 Design is a **guided collaboration**, not order-taking and not a solo guess. Pull the person's taste in, then steer it toward what actually serves them. Never just execute a preference that would hurt them; say so and offer a credible alternative.
 
-## Ask for their taste (then guide it)
-Open with something like:
-> "Anything you're drawn to design-wise? **Colors** you love or hate, a **font or style**, your **industry's** feel to fit or deliberately break from, and **one or two sites you like** (paste links). Send a **profile photo** too, and tell me: **black-and-white or color?**"
+## Ask for direction, not colors (then derive, don't guess)
+Most people cannot name colors that will actually work, and asking them to ("what colors do you want?") is a top source of rework: they name a hex, you build it, it reads wrong, you start over. So **do not ask for colors. Ask for direction and mood**, and derive the real palette yourself (from their photo, by default - see below). The person supplies the *feeling*; you supply the *hex*.
+
+Open with feel, not color codes:
+> "A few quick vibe questions, no color codes needed. Should this feel **warm or cool**? **Calm and understated, or bold and high-contrast**? **Minimal and editorial, techy and precise, or expressive and creative**? What **impression** should a stranger get in three seconds - trustworthy, sharp, senior, approachable, cutting-edge? And **one or two sites or brands whose feel you admire** (paste links - the feel, not the industry)."
+
+Then get the raw material for the palette itself:
+> "Send your **profile photo** - by default I build the palette from your own colors, so it's genuinely yours, not a template. And do you want the portrait **black-and-white or color**?"
 
 Then **translate and steer**:
-- Turn their references into a concrete design read (palette, type, density, motion) - the way `design-taste-frontend` does.
-- If a preference undercuts them (e.g. neon/playful for a senior/regulated role, a trendy font that won't age, low contrast), **push back kindly and propose the credible version.** "I hear you on the bright palette - for the VPs screening you I'd dial it to one confident accent so the work leads. Here's both, your call."
+- Turn the mood answers + references into a concrete design read (palette direction, type, density, motion) - the way `design-taste-frontend` does.
+- **Default the palette to portrait-derived** (`references/templates/palettes.md`): sample their photo and either use those colors or a calibrated variation that harmonizes with them. Reach for a curated preset only when there's no usable photo, or the derived palette genuinely fights the mood they asked for.
+- If a preference undercuts them (neon/playful for a senior or regulated role, a trendy font that won't age, low contrast), **push back kindly and propose the credible version.** "I hear you on bold - for the VPs screening you I'd keep one confident accent so the work leads. Here's both, your call."
 - Lock ONE system, document it in `DESIGN.md`, apply it everywhere.
 
 ## Default aesthetic
@@ -34,3 +40,34 @@ Sober, senior, credible is the default (see `references/examples/professional-sa
 - One content **measure** for body text across all sections (e.g. `--measure: 62ch`); ragged, inconsistent widths read as misalignment even when left edges match.
 - One accent color, one corner-radius scale, one shadow rule, one type scale - applied everywhere. Audit before shipping.
 - Verify at **375px first**, then scale up.
+
+## Résumé typography (the locked résumé standard)  → `references/templates/resume-template.html`
+The résumé is a separate, print/PDF deliverable, and it has its own locked type system. Use the
+template; do not re-derive these. Seven rules, all learned the hard way and all verifiable:
+
+1. **One font family, two absolute max.** A résumé needs no display face; let one sans carry
+   everything and let weight do the hierarchy. Pick from `references/templates/fonts.md`.
+2. **One type scale, exactly five sizes** (name / role title / body / section header / meta).
+   Most résumés read as one gray mass because they scatter nine near-identical sizes across a
+   half-point band. Define the five as tokens and reuse them. To fit a tight 1 or 2 pages,
+   scale all five in lockstep - never add a sixth ad-hoc size.
+3. **Clear section breaks.** Each section header is a strong rule with real air above it, so
+   Experience / Earlier / Skills / Education are unmistakably separate blocks.
+4. **No widows, no orphans - be ruthless.** Nothing in a group sits alone.
+   - *Line level:* `text-wrap:pretty` + `hyphens:none`, and wrap any hyphenated compound
+     (`tier-1/2`, `space-operations`) in `white-space:nowrap` so no token or lone word dangles
+     on its own line.
+   - *Block level:* weld each role title to its bullets (`.job{break-inside:avoid}`), never let
+     a bullet or a one-line row split across a page (`li`/`.erow{break-inside:avoid}`), and never
+     let a section header end a page (`h2{break-after:avoid}`).
+   - **Verify in a real browser** with `Range.getClientRects()` line-grouping, not by eyeballing
+     a screenshot - a single-word last line is invisible until you measure for it.
+5. **Disciplined bold.** Bold marks metrics and marquee proper nouns only (a famous employer, a
+   real award). When every phrase is bold, nothing is - grey descriptor text is never bold.
+6. **Two pages, ATS-safe.** Real selectable text (never an image of text), one column, standard
+   section headers, right-aligned consistent dates. Render to PDF via headless print.
+7. **Truth only.** Downstream of the honesty gate: every metric, title, date, and employer
+   traces to the dossier. An unverifiable number is cut, not typeset.
+
+**Privacy:** the template stays tokenized. Never commit a real person's filled-in résumé (their
+name, employers, metrics, contact) to a shared or public repo - fill it locally, deliver the PDF.

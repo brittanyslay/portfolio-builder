@@ -1,0 +1,179 @@
+<!--
+  Portfolio-builder RÉSUMÉ template (print / PDF, US Letter).
+  A locked, tokenized résumé to pair with default-template.html. Same philosophy: reuse the
+  structure and the type system as-is; fill only the {{PLACEHOLDER}} tokens from the dossier.
+  Battle-tested through a full real build plus a brutal typographic critique (professional
+  resume-writer / designer / hiring-manager / HR / ATS lenses) and multiple rounds of live
+  feedback. The inline comments say WHY each rule looks the way it does; do not undo them.
+
+  Placeholders are {{UPPER_SNAKE_CASE}}. Blocks marked REPEAT show ONE example; duplicate the
+  block per real role and delete the example. NEVER ship a live placeholder, and NEVER paste a
+  real person's private résumé into a shared/public repo -- this file stays tokenized.
+
+  The seven locked rules (all verified, do not "improve" by breaking them):
+   1. ONE font family (two absolute max). --sans does everything; a résumé does not need a
+      display face. Pick from references/templates/fonts.md.
+   2. ONE type scale, exactly five sizes (--fs-name/role/body/head/meta). Nine near-identical
+      sizes are why most résumés read as one gray mass. To fit 1 vs 2 pages, scale all five
+      together, never introduce a sixth ad-hoc size.
+   3. Clear section breaks: each <h2> is a strong rule with real air above it.
+   4. No widows / no orphans: text-wrap:pretty + hyphens:none kill single-word last lines;
+      .job welds a role title to its bullets across a page break; li/.erow never split; an
+      <h2> never sits alone at the foot of a page. VERIFY in a real browser with
+      Range.getClientRects() line-grouping, not by eyeballing a screenshot.
+   5. Disciplined bold: bold marks METRICS and MARQUEE proper nouns only (a famous employer,
+      a real award). When every phrase is bold, nothing is. Grey descriptor text is not bold.
+   6. Two pages, ATS-safe: real selectable text (never an image of text), one column,
+      standard section headers, dates right-aligned and consistent. Renders to PDF via
+      headless print (see references/design-and-infra.md).
+   7. Truth only: every metric, title, date, and employer traces to the dossier. This template
+      is downstream of the honesty gate -- an unverifiable number is cut, not typeset.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<title>{{FULL_NAME}}, {{ONE_LINE_POSITIONING}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- ONE family. Request only the weights the CSS below actually uses (400/500/600/700/800). -->
+<link href="{{GOOGLE_FONTS_URL}}" rel="stylesheet" />
+<style>
+  @page { size: Letter; margin: 0.5in 0.55in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    /* palette -- keep to ink + one accent. The accent carries readable TEXT here (company names,
+       the positioning line), not just decoration, so it MUST pass WCAG AA (>=4.5:1) on white --
+       compute it, don't eyeball. A too-light accent makes real content fail contrast. */
+    --ink:{{INK_HEX}}; --ink-2:{{INK_2_HEX}}; --grey:{{GREY_HEX}};
+    --accent:{{ACCENT_HEX}}; --line:{{LINE_HEX}};
+    /* ONE font family (rule 1) */
+    --sans:{{SANS_FONT_STACK}};
+    /* THE type scale -- the ONLY five sizes on the page (rule 2). Nudge all five in lockstep
+       to hit a tight 1 or 2 pages; never add a sixth. */
+    --fs-name:24pt; --fs-role:10.5pt; --fs-body:9.5pt; --fs-head:9pt; --fs-meta:8.5pt;
+  }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* text-wrap:pretty + hyphens:none => no single-word last lines, no mid-word hyphen breaks (rule 4) */
+  body { font-family:var(--sans); color:var(--ink); font-size:var(--fs-body); line-height:1.4;
+         text-wrap:pretty; -webkit-hyphens:none; hyphens:none; overflow-wrap:break-word; }
+  b { font-weight:700; color:var(--ink); }
+
+  /* header */
+  .head { display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+          padding-bottom:14px; margin-bottom:18px; border-bottom:2px solid var(--ink); }
+  .name { font-weight:800; font-size:var(--fs-name); letter-spacing:-.03em; line-height:1; }
+  /* nowrap so a post-nominal list (", DPhil, FRSA") never splits its comma onto a long name's
+     last line; it wraps as one unit or not at all */
+  .name span { font-weight:500; font-size:var(--fs-role); color:var(--grey); letter-spacing:0; white-space:nowrap; }
+  .title { font-weight:700; font-size:var(--fs-meta); letter-spacing:.16em; text-transform:uppercase;
+           color:var(--accent); margin-top:9px; }
+  .contact { text-align:right; font-size:var(--fs-meta); font-weight:500; color:var(--ink-2);
+             line-height:1.75; white-space:nowrap; }
+  .contact a { color:inherit; text-decoration:none; }
+
+  /* summary -- 3-4 lines, metric-forward, no fluff */
+  .summary { font-size:var(--fs-body); line-height:1.42; margin:2px 0 3px; color:var(--ink-2); }
+
+  /* section headers -- strong, clearly separated breaks (rule 3) */
+  h2 { font-weight:800; font-size:var(--fs-head); letter-spacing:.16em; text-transform:uppercase;
+       color:var(--ink); margin:15px 0 7px; padding-bottom:6px; border-bottom:1.5px solid var(--ink); }
+
+  /* roles -- .job welds the title to its bullets so a page break can never strand a header (rule 4) */
+  .job { break-inside:avoid; }
+  .role { display:flex; justify-content:space-between; align-items:baseline; gap:14px; margin-top:9px; }
+  .role .who { font-weight:700; font-size:var(--fs-role); letter-spacing:-.01em; }
+  .role .who .co { font-weight:700; color:var(--accent); }
+  .role .who .meta { font-weight:500; color:var(--grey); font-size:var(--fs-meta); }
+  .role .when { font-weight:600; font-size:var(--fs-meta); color:var(--ink-2); white-space:nowrap; letter-spacing:.02em; }
+  ul { list-style:none; margin:5px 0 0; }
+  li { position:relative; padding-left:15px; margin-bottom:2.5px; font-size:var(--fs-body);
+       line-height:1.4; break-inside:avoid; }
+  li::before { content:""; position:absolute; left:0; top:.5em; width:6px; height:6px;
+               border-radius:1.5px; background:var(--accent); }
+
+  /* earlier / consulting -- one dense line each; date right-aligned */
+  .earlier { margin:7px 0 0; }
+  .erow { display:flex; justify-content:space-between; gap:14px; margin-bottom:5px;
+          font-size:var(--fs-body); line-height:1.4; break-inside:avoid; }
+  .erow .ewho { flex:1; }
+  .erow .emeta { color:var(--grey); font-weight:500; }
+  .erow .when { font-weight:600; font-size:var(--fs-meta); color:var(--ink-2); white-space:nowrap; }
+
+  .comp { font-size:var(--fs-body); line-height:1.5; }
+  .edu { font-size:var(--fs-body); line-height:1.5; }
+
+  /* group integrity: a header never ends a page; a job/list never splits mid-item (rule 4) */
+  h2 { break-after:avoid; } .role { break-after:avoid; } ul { break-inside:avoid; }
+</style>
+</head>
+<body>
+  <header class="head">
+    <div>
+      <!-- Post-nominals only (MBA, PMP, PE, PhD), kept short; a long credential list belongs on
+           the Education line. The comma lives INSIDE the token so an empty value can't leave a
+           dangling comma: set {{CREDENTIAL_SUFFIX}} to "" for none, or to <span>, MBA</span>. -->
+      <h1 class="name">{{FULL_NAME}}{{CREDENTIAL_SUFFIX}}</h1>
+      <div class="title">{{ONE_LINE_POSITIONING}}</div>
+    </div>
+    <div class="contact">
+      {{CITY}}, {{STATE}} · {{REMOTE_OR_WORK_PREF}}<br>
+      <a href="mailto:{{EMAIL}}">{{EMAIL}}</a><br>
+      <a href="{{SITE_URL}}">{{SITE_DISPLAY}}</a><br>
+      <a href="{{LINKEDIN_URL}}">{{LINKEDIN_DISPLAY}}</a>
+    </div>
+  </header>
+
+  <!-- 3-4 lines. Lead with the single strongest verified proof point. Bold metrics + marquee
+       names only. No slop verbs. Every number here must survive the honesty gate. -->
+  <p class="summary">{{POSITIONING_SENTENCE_WITH_LEAD_METRIC}} {{ONE_OR_TWO_PROOF_SENTENCES}} {{DIFFERENTIATOR_SENTENCE}} {{AVAILABILITY_SENTENCE}}</p>
+
+  <h2>Professional Experience</h2>
+
+  <!-- REPEAT .job per role, most recent first. Keep the descriptor short enough that the role
+       line doesn't wrap into a ragged grey tail; move real scale into a bullet instead. -->
+  <div class="job">
+  <div class="role">
+    <div class="who">{{ROLE_TITLE}} <span class="co">· {{EMPLOYER}}</span> <span class="meta">({{SHORT_COMPANY_DESCRIPTOR}})</span></div>
+    <div class="when">{{START}} - {{END_OR_PRESENT}}</div>
+  </div>
+  <ul>
+    <li>{{ACHIEVEMENT_BULLET_WITH_METRIC}}</li>
+    <li>{{ACHIEVEMENT_BULLET_WITH_METRIC}}</li>
+    <li>{{ACHIEVEMENT_BULLET_WITH_METRIC}}</li>
+  </ul>
+  </div>
+  <!-- /REPEAT .job -->
+
+  <h2>Earlier Career</h2>
+  <div class="earlier">
+    <!-- REPEAT .erow -- one line each; bold only a metric or a marquee name, not the descriptor -->
+    <div class="erow"><div class="ewho"><b>{{ROLE_TITLE}} · {{EMPLOYER}}</b> <span class="emeta">· {{ONE_LINE_HIGHLIGHT_WITH_AT_MOST_TWO_BOLD_TERMS}}</span></div><div class="when">{{START}} - {{END}}</div></div>
+    <!-- /REPEAT .erow -->
+  </div>
+
+  <!-- Optional. Include only if the person has real contract/freelance work worth showing. -->
+  <h2>Consulting &amp; Contract</h2>
+  <div class="earlier">
+    <div class="erow"><div class="ewho"><b>{{ROLE_TITLE}} · {{CLIENT}}</b> <span class="emeta">({{CONTEXT}}) · {{ONE_LINE_HIGHLIGHT}}</span></div><div class="when">{{START}} - {{END}}</div></div>
+  </div>
+
+  <h2>Core Competencies</h2>
+  <div class="comp">
+    <b>{{GROUP_1_LABEL}}:</b> {{SKILLS_LIST_MIDDOT_SEPARATED}}<br>
+    <b>{{GROUP_2_LABEL}}:</b> {{SKILLS_LIST_MIDDOT_SEPARATED}}<br>
+    <b>{{GROUP_3_LABEL}}:</b> {{SKILLS_LIST_MIDDOT_SEPARATED}}<br>
+    <b>Stack:</b> {{TOOLS_MIDDOT_SEPARATED}}
+  </div>
+
+  <!-- Omit any label whose value is empty. Never ship "Recognition:" or "Certifications &
+       Training:" (or a competency group) with nothing, or a placeholder dash, after it -
+       delete the whole line instead. -->
+  <h2>Education &amp; Recognition</h2>
+  <p class="edu"><b>{{DEGREE}}</b>, {{SCHOOL}} &nbsp;·&nbsp; {{ADDITIONAL_DEGREES_OR_CERTS}}<br>
+  <b>Recognition:</b> {{AWARDS_MIDDOT_SEPARATED}}<br>
+  <b>Certifications &amp; Training:</b> {{CERTS_MIDDOT_SEPARATED}}</p>
+</body>
+</html>
