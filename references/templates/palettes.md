@@ -2,7 +2,7 @@
 
 The default template (`default-template.html`) takes exactly these color tokens: `--page`, `--paper`, `--paper-2`, `--ink`, `--ink-2`, `--line`, `--accent`, `--accent-2`, `--pink` (third accent), `--eye` (fourth accent, used only on the hero eyebrow label). Swapping a palette means swapping these nine values - never restructure the CSS to accommodate a palette.
 
-**Show the person real options, don't guess for them.** Build a quick side-by-side comparison (the Artifact tool, or a plain local HTML page) with each palette applied to the actual hero - swatches alone don't tell a person how a palette reads in context. Let them pick. Ten minutes of comparison saves multiple full-rebuild cycles of "I don't like it, try something else."
+**You derive the palette; the person reacts to it - do not ask them to choose colors** (that is the #1 rework loop). Build the portrait-derived palette (below), apply it to the actual hero, and show *that* - plus maybe one alternate direction - because swatches alone don't tell a person how a palette reads in context. They say yes or nudge it; you don't hand them a menu of presets to pick from. Ten minutes of seeing the real thing saves multiple full-rebuild cycles. A portrait-derived palette is also why two people never get the same site.
 
 ## Default - Portrait-derived
 
@@ -14,6 +14,12 @@ Sample the person's own headshot for real colors instead of guessing:
 5. `--pink`/third accent is NOT portrait-derived by default - it's a deliberate design choice layered on top. Keep it muted/desaturated (rose, not magenta) rather than saturated, and sanity-check the full combination doesn't accidentally read as a flag or political color association (see the Rasta-check note below) before locking it in.
 
 This technique produces a palette that's genuinely theirs, not a generic "professional" pick, and is a strong answer if a person asks "why these colors."
+
+### Two ways to use the photo (both are "portrait-derived")
+1. **Literal** - the sampled colors above, when the photo has genuinely usable, distinct color (a real accent in hair, eyes, or clothing) and the result passes contrast without reading muddy.
+2. **Harmonized variation** - when the photo is mostly neutral, low-contrast, or monotone (very common, and a muddy literal palette is worse than none), do NOT force the literal sample. Instead pull the photo's *dominant* hue and overall temperature (warm/cool), then build the accent as a *calibrated* color in a harmony with it: **analogous** (a neighbouring hue) for a calm, cohesive feel, or a restrained **complementary** for more contrast - at a saturation and lightness tuned to pass WCAG AA on the page. Keep the neutrals (`--ink`, `--paper`, `--page`) sampled from the photo's real dark and light values, so the palette still belongs to the person even though the accent is a deliberate harmony rather than a literal pixel.
+
+Pick per photo, and say which you used and why ("your jacket's slate blue, dialed to one confident accent"). Either way the answer to "why these colors" is "they're yours" - which is the whole point, and the reason two people never land the same palette.
 
 ## Curated alternates (use when a portrait isn't available, or the person wants something else)
 
