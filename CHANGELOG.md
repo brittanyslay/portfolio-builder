@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.2.0 - 2026-08-30
+
+Added a standard Phase 5 deliverable: a "move to your own accounts" handoff guide, generated at the end of every build where the site is live on an account the client doesn't personally control - not just when asked. `references/templates/handoff-guide-template.html` is a black-and-white, IKEA-manual-style guide (numbered circular steps, icon-labeled callouts, arrow-prefixed micro-instructions, framed screenshot, chapter dividers), placeholder-driven so it adapts to whatever host/registrar the client actually uses. `references/handoff-guide.md` documents the placeholder list, why Netlify Drop is the default recommendation for non-technical clients (no GitHub, no CLI, free custom domains), the same live-docs verification discipline the rest of the skill already applies to factual claims, and two QA rules learned the hard way while building the reference guide:
+- Test mobile layout with real device emulation, not a headless-Chrome `--window-size` flag - the flag doesn't reliably honor `width=device-width` and can make a fine page look broken (or a broken page look fine).
+- Use `text-wrap: balance` on short wrapped fragments and `white-space: nowrap` on inline `<code>` chips to avoid widowed words and mid-phrase line breaks.
+
+Also documents a fallback for "put a copy in Drive" requests when the guide embeds a screenshot: a giant embedded image makes the raw HTML too expensive to create via an inline-content API call (cost scales with file size, since the content has to be generated as literal output). A companion Google Doc with the steps as plain formatted text plus a link to the full illustrated version sidesteps this cleanly.
+
 ## v1.1.4 - 2026-08-21
 
 Corrected the logo-wall guidance added in v1.1.3: it recommended `repeat(N, 132px)` (fixed-pixel grid columns) for a known logo count, which turned out to be a real bug when actually shipped - 3 columns at 132px each only spans about half of a ~1160px-wide panel, leaving the rest as dead empty space. Corrected to `repeat(N, 1fr)` (fluid columns), which fills the real container width while keeping each logo's own box a fixed height.

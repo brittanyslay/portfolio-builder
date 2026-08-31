@@ -1,0 +1,299 @@
+<title>Moving {{DOMAIN}}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#E7E7E5;--paper:#FFFFFF;--paper-2:#EFEFEE;--ink:#0F0F0F;--ink-2:#5C5C5C;
+    --line:rgba(0,0,0,.16);--line-strong:rgba(0,0,0,.9);--accent:#3A3A3A;--accent-2:#000000;--good:#000000;
+    --sans:"Libre Franklin",system-ui,-apple-system,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --page:#161616;--paper:#0c0c0c;--paper-2:#1c1c1c;--ink:#F2F2F2;--ink-2:#ADADAD;
+      --line:rgba(255,255,255,.2);--line-strong:rgba(255,255,255,.92);--accent:#CFCFCF;--accent-2:#FFFFFF;--good:#FFFFFF;
+    }
+  }
+  :root[data-theme="dark"]{
+    --page:#161616;--paper:#0c0c0c;--paper-2:#1c1c1c;--ink:#F2F2F2;--ink-2:#ADADAD;
+    --line:rgba(255,255,255,.2);--line-strong:rgba(255,255,255,.92);--accent:#CFCFCF;--accent-2:#FFFFFF;--good:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+  img{max-width:100%;display:block}
+  .icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+  .wrap{max-width:760px;margin:0 auto;padding:clamp(1.4rem,4vw,3rem) clamp(1.2rem,4vw,2rem) 5rem}
+  .panel{background:var(--paper);border-radius:20px;box-shadow:0 30px 60px -40px rgba(0,0,0,.35);padding:clamp(1.6rem,5vw,3rem);border:1px solid var(--line)}
+
+  /* cover */
+  header{margin-bottom:1.8rem;text-align:center}
+  .eyebrow{font-weight:800;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin:0 0 .9rem}
+  h1{font-size:clamp(1.8rem,5vw,2.5rem);font-weight:900;letter-spacing:-.02em;margin:0 0 1rem;text-wrap:balance}
+  .badges{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem 1.3rem;margin:0 0 1.4rem}
+  .badge-item{display:flex;align-items:center;gap:.4rem;font-size:.85rem;font-weight:700;color:var(--ink-2)}
+  .badge-item .icon{font-size:1.15rem}
+  header .lede{color:var(--ink-2);font-size:.98rem;max-width:52ch;margin:0 auto;text-align:left}
+  header .lede b{color:var(--ink)}
+
+  /* kit list */
+  .kit{border:1.5px solid var(--line-strong);border-radius:14px;padding:1.3rem 1.4rem;margin:1.6rem 0 2.4rem}
+  .kit-title{font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 1rem;display:flex;align-items:center;gap:.5rem}
+  .kit-title .icon{font-size:1.1rem}
+  .kit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  .kit-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem}
+  .kit-item .icon{width:2rem;height:2rem;stroke-width:1.4}
+  .kit-item .t{font-weight:700;font-size:.86rem}
+  .kit-item .d{font-size:.76rem;color:var(--ink-2)}
+
+  /* chapter divider */
+  .chapter{display:flex;align-items:center;gap:1.1rem;margin:3rem 0 .3rem;padding-top:2rem;border-top:2px solid var(--line-strong)}
+  .chapter:first-of-type{border-top:none;padding-top:0;margin-top:2rem}
+  .chapter .num{font-family:var(--mono);font-weight:800;font-size:2.6rem;line-height:1;color:var(--ink);flex-shrink:0}
+  .chapter .txt{min-width:0}
+  .chapter .part-lbl{display:block;font-weight:800;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.15rem}
+  .chapter h2{font-size:1.35rem;font-weight:800;letter-spacing:-.01em;margin:0;text-wrap:balance}
+  .part-sub{color:var(--ink-2);font-size:.92rem;margin:.7rem 0 1.6rem}
+
+  /* step cards */
+  .stepcard{border:1.5px solid var(--line-strong);border-radius:14px;padding:1.4rem 1.5rem;margin-bottom:1.1rem;position:relative}
+  .step-head{display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem}
+  .step-num{font-family:var(--mono);font-weight:800;font-size:1.05rem;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .step-head .icon{width:1.5rem;height:1.5rem;color:var(--ink-2);flex-shrink:0}
+  .steptitle{font-weight:800;font-size:1.06rem;margin:0;text-wrap:balance}
+
+  .arrow-connector{display:flex;justify-content:center;margin:-.3rem 0}
+  .arrow-connector .icon{width:1.3rem;height:1.3rem;color:var(--ink-2);stroke-width:2.4}
+
+  ol.microlist{list-style:none;margin:0;padding:0}
+  ol.microlist>li{display:flex;gap:.7rem;font-size:.94rem;color:var(--ink);padding:.5rem 0;border-top:1px dashed var(--line)}
+  ol.microlist>li:first-child{border-top:none;padding-top:0}
+  ol.microlist>li .arrow{font-weight:800;color:var(--ink-2);flex-shrink:0}
+  ol.microlist>li b{font-weight:700}
+
+  code{font-family:var(--mono);background:var(--paper-2);border:1px solid var(--line);border-radius:5px;padding:.1em .4em;font-size:.88em;color:var(--ink);white-space:nowrap}
+  .copyval{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);background:var(--paper-2);border:1px solid var(--line);border-radius:7px;padding:.3em .7em;font-size:.86rem;font-weight:600;color:var(--ink)}
+
+  .callout{display:flex;gap:.7rem;align-items:flex-start;background:var(--paper-2);border-radius:10px;padding:.85rem 1rem;margin:.8rem 0;font-size:.87rem;color:var(--ink-2)}
+  .callout .icon{width:1.2rem;height:1.2rem;margin-top:.1rem;flex-shrink:0;color:var(--ink)}
+  .callout b{color:var(--ink)}
+  .callout.good{background:var(--ink);color:var(--page)}
+  .callout.good b{color:var(--page)}
+  .callout.good .icon{color:var(--page)}
+
+  .recordbox{background:var(--paper-2);border-radius:10px;padding:.9rem 1rem;margin:.8rem 0;font-size:.86rem}
+  .recordbox .row{display:flex;gap:.5rem;padding:.3rem 0}
+  .recordbox .row+.row{border-top:1px dashed var(--line)}
+  .recordbox .k{font-weight:700;min-width:6.2rem;flex-shrink:0}
+
+  figure{margin:1rem 0}
+  figure .frame{border:1.5px solid var(--line-strong);border-radius:10px;padding:.5rem;background:var(--paper-2)}
+  figure img{border-radius:6px}
+  figcaption{font-size:.78rem;color:var(--ink-2);margin-top:.5rem;text-align:center}
+
+  a{color:var(--accent-2)}
+  a.reflink{font-size:.84rem}
+
+  .checklist{list-style:none;margin:1rem 0 0;padding:0}
+  .checklist li{display:flex;gap:.6rem;align-items:flex-start;font-size:.92rem;color:var(--ink-2);margin-bottom:.6rem}
+  .checklist li .icon{width:1.1rem;height:1.1rem;flex-shrink:0;margin-top:.15em;color:var(--ink)}
+
+  footer{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-2);text-align:center}
+
+  .txt{min-width:0;flex:1 1 auto;text-wrap:balance}
+  ol.microlist>li{text-wrap:balance}
+  ol.microlist>li,.callout,.checklist li,.recordbox .row,.badge-item{flex-wrap:wrap}
+  @media(max-width:640px){.kit-grid{grid-template-columns:1fr}}
+</style>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-zip" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M12 3v3M12 8v2M12 12v2M12 16v2"/></symbol>
+    <symbol id="i-account" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="3.6"/><path d="M10.5 12.3 18.5 4.3M15.5 7.3l2.5 2.5M18 4.8l1.7 1.7"/></symbol>
+    <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M6 3l4.5 15.5 2-6 6-2L6 3z" stroke-linejoin="round"/></symbol>
+    <symbol id="i-drag" viewBox="0 0 24 24"><rect x="4" y="12" width="7" height="7" rx="1"/><path d="M12 6h6M15 3l3 3-3 3" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3.5 21.5 20h-19L12 3.5z" stroke-linejoin="round"/><path d="M12 10v4.2"/><circle cx="12" cy="17.3" r=".4" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M7.5 12.5l3 3 6-6.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.5 2"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9.5 12 16l6-6.5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.7 2.5 4 5.7 4 9s-1.3 6.5-4 9c-2.7-2.5-4-5.7-4-9s1.3-6.5 4-9z"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3 20.5 7.5 12 12 3.5 7.5 12 3z" stroke-linejoin="round"/><path d="M3.5 7.5v9L12 21l8.5-4.5v-9M12 12v9"/></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <div class="panel">
+    <header>
+      <p class="eyebrow">Setup guide &middot; {{DOMAIN}}</p>
+      <h1>Move your site to<br>accounts you own</h1>
+      <div class="badges">
+        <span class="badge-item"><svg class="icon"><use href="#i-clock"/></svg><span class="txt"> 15&ndash;20 minutes</span></span>
+        <span class="badge-item"><svg class="icon"><use href="#i-account"/></svg><span class="txt"> 1 free account</span></span>
+        <span class="badge-item"><svg class="icon"><use href="#i-check"/></svg><span class="txt"> No coding</span></span>
+      </div>
+      <p class="lede">One simple action per step. If a screen looks different from the picture shown, stop and ask for help.</p>
+    </header>
+
+    <div class="kit">
+      <p class="kit-title"><svg class="icon"><use href="#i-box"/></svg> What you'll need</p>
+      <div class="kit-grid">
+        <div class="kit-item">
+          <svg class="icon"><use href="#i-zip"/></svg>
+          <div class="t">{{ZIP_NAME}}</div>
+          <div class="d">Already in your Downloads folder. Don't unzip it.</div>
+        </div>
+        <div class="kit-item">
+          <svg class="icon"><use href="#i-account"/></svg>
+          <div class="t">A free {{HOST_NAME}} account</div>
+          <div class="d">You'll create this in Part 1.</div>
+        </div>
+        <div class="kit-item">
+          <svg class="icon"><use href="#i-key"/></svg>
+          <div class="t">Your {{REGISTRAR_NAME}} login</div>
+          <div class="d">The account that owns {{DOMAIN}}.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="num">1</div>
+      <div class="txt">
+        <span class="part-lbl">Part 1 of 2</span>
+        <h2>Publish the site with {{HOST_NAME}}</h2>
+      </div>
+    </div>
+    <p class="part-sub">Turns your files into a real website &mdash; no typing, just drag and drop.</p>
+
+    <div class="stepcard">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <svg class="icon"><use href="#i-account"/></svg>
+        <p class="steptitle">Create a free {{HOST_NAME}} account</p>
+      </div>
+      <ol class="microlist">
+        <li><span class="arrow">&rarr;</span><span class="txt"> Go to <a href="https://{{HOST_SIGNUP_URL}}" target="_blank" rel="noopener">{{HOST_SIGNUP_URL}}</a></span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Click <b>{{SIGNUP_BUTTON_LABEL}}</b></span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Continue with your usual email &mdash; <b>{{CLIENT_EMAIL}}</b></span></li>
+      </ol>
+      <div class="callout"><svg class="icon"><use href="#i-check"/></svg><span class="txt"> Uses your existing sign-in &mdash; no new password needed.</span></div>
+    </div>
+
+    <div class="arrow-connector"><svg class="icon"><use href="#i-chev"/></svg></div>
+
+    <div class="stepcard">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <svg class="icon"><use href="#i-drag"/></svg>
+        <p class="steptitle">Drag the zip file in</p>
+      </div>
+      <ol class="microlist">
+        <li><span class="arrow">&rarr;</span><span class="txt"> Once signed in, go to <a href="https://{{HOST_DROP_URL}}" target="_blank" rel="noopener">{{HOST_DROP_URL}}</a></span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Find <code>{{ZIP_NAME}}</code> in Downloads</span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Drag it into the box that says <b>Drop here</b></span></li>
+      </ol>
+      <figure>
+        <div class="frame">
+          <img src="{{NETLIFY_DROP_IMG}}" alt="The {{HOST_NAME}} Drop page, showing a large box that says Drop here, with links to choose a file or folder instead.">
+        </div>
+        <figcaption>This is the screen you'll see. Drag the zip file straight into the dashed box.</figcaption>
+      </figure>
+      <div class="callout"><svg class="icon"><use href="#i-cursor"/></svg><span class="txt"> Trackpad awkward? Click <b>file</b> below the box instead.</span></div>
+      <div class="callout good"><svg class="icon"><use href="#i-check"/></svg><span class="txt"> You'll get a live address ending in <code>.{{HOST_APP_DOMAIN}}</code>. Click it &mdash; check the site loads.</span></div>
+    </div>
+
+    <div class="arrow-connector"><svg class="icon"><use href="#i-chev"/></svg></div>
+
+    <div class="stepcard">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <svg class="icon"><use href="#i-globe"/></svg>
+        <p class="steptitle">Add {{DOMAIN}} as the domain</p>
+      </div>
+      <ol class="microlist">
+        <li><span class="arrow">&rarr;</span><span class="txt"> Click <b>Domain management</b> in the left menu</span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Click <b>Add a domain</b>, then <b>Add a domain you already own</b></span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Type <code>{{DOMAIN}}</code> &mdash; no <code>www</code>, no <code>https://</code></span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Click <b>Verify</b>, then <b>Add domain</b></span></li>
+      </ol>
+      <p style="font-size:.87rem;color:var(--ink-2);margin:.9rem 0 .3rem">Keep this tab open &mdash; you'll copy these into {{REGISTRAR_NAME}} next:</p>
+      <div class="recordbox">
+        <div class="row"><span class="k">A Record</span><span class="txt"> Host <code>@</code> &rarr; Value <code>{{DNS_A_VALUE}}</code></span></div>
+        <div class="row"><span class="k">CNAME</span><span class="txt"> Host <code>www</code> &rarr; Value: the <code>.{{HOST_APP_DOMAIN}}</code> address {{HOST_NAME}} shows <b>you</b></span></div>
+      </div>
+      <p class="reflink"><a href="{{HOST_DOMAIN_DOCS_URL}}" target="_blank" rel="noopener">{{HOST_NAME}}'s own guide for this exact screen &nearr;</a></p>
+    </div>
+
+    <div class="chapter">
+      <div class="num">2</div>
+      <div class="txt">
+        <span class="part-lbl">Part 2 of 2</span>
+        <h2>Point {{DOMAIN}} at your new site</h2>
+      </div>
+    </div>
+    <p class="part-sub">Tells {{DOMAIN}}, which you already own, where to send visitors.</p>
+
+    <div class="stepcard">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <svg class="icon"><use href="#i-key"/></svg>
+        <p class="steptitle">Open the domain's DNS settings</p>
+      </div>
+      <ol class="microlist">
+        <li><span class="arrow">&rarr;</span><span class="txt"> Sign in at <a href="https://{{REGISTRAR_URL}}" target="_blank" rel="noopener">namecheap.com</a></span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Click <b>Domain List</b>, find {{DOMAIN}}, click <b>Manage</b></span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Click the tab labeled <b>Advanced DNS</b></span></li>
+      </ol>
+    </div>
+
+    <div class="arrow-connector"><svg class="icon"><use href="#i-chev"/></svg></div>
+
+    <div class="stepcard">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <svg class="icon"><use href="#i-key"/></svg>
+        <p class="steptitle">Add the two records from {{HOST_NAME}}</p>
+      </div>
+      <ol class="microlist">
+        <li><span class="arrow">&rarr;</span><span class="txt"> Find <b>Host Records</b>, click <b>Add New Record</b></span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Record 1: Type <code>A Record</code>, Host <code>@</code>, Value <code>{{DNS_A_VALUE}}</code></span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Record 2: Type <code>CNAME Record</code>, Host <code>www</code>, Value the <code>.{{HOST_APP_DOMAIN}}</code> address from {{HOST_NAME}}</span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Click the green checkmark to save each one</span></li>
+      </ol>
+      <div class="callout"><svg class="icon"><use href="#i-warn"/></svg><span class="txt"> Already a record at Host <code>@</code> or <code>www</code>? Delete only that one. Never touch <code>MX</code> or <code>TXT</code> &mdash; those run email.</span></div>
+      <p class="reflink"><a href="https://{{REGISTRAR_URL}}/support/knowledgebase/article.aspx/319/2237/how-to-set-up-dns-records-for-your-domain/" target="_blank" rel="noopener">{{REGISTRAR_NAME}}'s own guide for this exact screen &nearr;</a></p>
+    </div>
+
+    <div class="arrow-connector"><svg class="icon"><use href="#i-chev"/></svg></div>
+
+    <div class="stepcard">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <svg class="icon"><use href="#i-clock"/></svg>
+        <p class="steptitle">Wait, then check</p>
+      </div>
+      <ol class="microlist">
+        <li><span class="arrow">&rarr;</span><span class="txt"> Wait 30 minutes to a few hours (rarely, up to a full day)</span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Visit <a href="http://{{DOMAIN}}" target="_blank" rel="noopener">{{DOMAIN}}</a> &mdash; it should load your site</span></li>
+        <li><span class="arrow">&rarr;</span><span class="txt"> Back in {{HOST_NAME}}'s Domain management, {{DOMAIN}} shows a green checkmark when connected</span></li>
+      </ol>
+      <div class="callout"><svg class="icon"><use href="#i-warn"/></svg><span class="txt"> Not working after hours? Check for a typo &mdash; compare values character-by-character.</span></div>
+      <div class="callout good"><svg class="icon"><use href="#i-check"/></svg><span class="txt"> <b>You're done.</b> The site is fully in your own accounts now. Update it anytime by dragging a new version onto your Deploys page.</span></div>
+    </div>
+
+    <div class="chapter" style="border-top:2px solid var(--line-strong);padding-top:2rem">
+      <svg class="icon" style="width:2.2rem;height:2.2rem;flex-shrink:0"><use href="#i-check"/></svg>
+      <div class="txt"><h2 style="margin:0">Before you check this off</h2></div>
+    </div>
+    <ul class="checklist">
+      <li><svg class="icon"><use href="#i-check"/></svg><span class="txt"> <a href="http://{{DOMAIN}}" target="_blank" rel="noopener">{{DOMAIN}}</a> loads the actual site in a normal browser window</span></li>
+      <li><svg class="icon"><use href="#i-check"/></svg><span class="txt"> The r&eacute;sum&eacute; download buttons on the site still work</span></li>
+      <li><svg class="icon"><use href="#i-check"/></svg><span class="txt"> You can sign into your new {{HOST_NAME}} account on your own, without this guide</span></li>
+    </ul>
+
+    <footer>
+      Every step was checked against {{HOST_NAME}}'s and {{REGISTRAR_NAME}}'s own current help pages. If a screen looks different from what's shown here, use the linked official page for that step instead.
+    </footer>
+  </div>
+</div>
