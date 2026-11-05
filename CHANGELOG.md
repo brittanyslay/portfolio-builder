@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.3.0 - 2026-11-05
+
+Raised the self-iteration bar and fixed a voice defect.
+
+- Added `references/design-critique.md`: a scored, re-runnable design-and-copy self-critique the skill runs on its *own* build before the honesty gate, with the same working-artifact discipline the honesty gate already applies to claims. It produces `design-critique.md`, scores every design row (level-appropriate register, no AI tells, computed WCAG contrast, one-of-everything consistency, equal-size cards, a real mobile presence at 375px, no orphaned words, justified motion, clean images and favicon) and every copy row (their voice, no AI slop, no templated repetition, parallel construction, honest stat labels, a copy-sensitivity scan), fixes what fails, and loops until it passes. A build that hasn't passed does not reach the honesty gate. Wired into Phase 4, operating principle 3, the honesty gate's design checkbox, and `design-guidance.md`. This makes the "self-iterate, don't hand the person round one" rule a concrete gate rather than an instruction.
+- Fixed a brand-voice defect: `references/handoff-guide.md` used em dashes throughout, which this project bans everywhere. Replaced all 16 with the repo's house-style spaced hyphen. No wording changed.
+- Enriched the SKILL description's discovery triggers (developer portfolio, founder / operator site, freelance / advisory site) and noted the self-critique in the README.
+
 ## v1.2.0 - 2026-08-30
 
 Added a standard Phase 5 deliverable: a "move to your own accounts" handoff guide, generated at the end of every build where the site is live on an account the client doesn't personally control - not just when asked. `references/templates/handoff-guide-template.html` is a black-and-white, IKEA-manual-style guide (numbered circular steps, icon-labeled callouts, arrow-prefixed micro-instructions, framed screenshot, chapter dividers), placeholder-driven so it adapts to whatever host/registrar the client actually uses. `references/handoff-guide.md` documents the placeholder list, why Netlify Drop is the default recommendation for non-technical clients (no GitHub, no CLI, free custom domains), the same live-docs verification discipline the rest of the skill already applies to factual claims, and two QA rules learned the hard way while building the reference guide:

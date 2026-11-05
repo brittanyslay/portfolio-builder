@@ -34,3 +34,9 @@ Sober, senior, credible is the default (see `references/examples/professional-sa
 - One content **measure** for body text across all sections (e.g. `--measure: 62ch`); ragged, inconsistent widths read as misalignment even when left edges match.
 - One accent color, one corner-radius scale, one shadow rule, one type scale - applied everywhere. Audit before shipping.
 - Verify at **375px first**, then scale up.
+
+## Score your own work before you hand it back
+This file sets the direction; `references/design-critique.md` is the scored, re-runnable pass you
+run on the finished build before the honesty gate. Render the real thing, look at it, score every
+design and copy row, fix what fails, and loop. Do not ship round one, and do not leave the person
+to find a problem the self-critique would have caught.
