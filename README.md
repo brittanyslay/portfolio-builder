@@ -7,7 +7,7 @@ A Claude Code skill that builds a truthful, well-designed personal portfolio sit
 ## What it does
 
 - **Refuses to fabricate.** Every metric, title, date, employer, and story is tagged by source and reconciled across documents. A claim the person can't defend is cut or reframed. It never ships. A pre-launch claims ledger flags anything unconfirmed and blocks the publish.
-- **Starts from a real, reusable template, not a from-scratch design exercise.** The default template already survived a full brutal critique (design, copy/positioning, technical consistency) plus multiple rounds of live user feedback; color and font are the only open choices (including deriving a palette straight from the person's own headshot photo). It still gets critiqued and iterated per person - mobile-first, verified at 375px - because content-specific issues don't come free just because the layout is proven.
+- **Starts from a real, reusable template, not a from-scratch design exercise.** The default template already survived a full brutal critique (design, copy/positioning, technical consistency) plus multiple rounds of live user feedback; color and font are the only open choices (including deriving a palette straight from the person's own headshot photo). It still gets critiqued and iterated per person - mobile-first, verified at 375px - because content-specific issues don't come free just because the layout is proven. The skill scores its own design and copy against a written critique rubric and loops until it passes, before you ever see round one.
 - **Positions before it designs.** A six-phase process - intake, positioning, content, design, infra, honesty gate - that reads target job descriptions and reconciles sources before writing a single line of HTML.
 - **Ships the whole package.** SEO and structured data, a branded plus ATS-safe résumé, a copy-paste-ready LinkedIn rewrite, one-command deploy, and an accessibility and performance pass.
 - **Sources company logos automatically where it can.** Tries a free logo lookup by domain before asking the person to hunt down and send files.
@@ -58,6 +58,7 @@ Claude Code auto-triggers it when you ask for a portfolio or personal site, or y
 | `references/templates/fonts.md` | Curated font-pairing options. |
 | `references/templates/linkedin-rewrite-template.md` | A copy-paste-ready LinkedIn Headline/About/Experience/Skills rewrite - a standard output, not optional. |
 | `references/design-guidance.md` | Taste checklist and the render → critique → iterate loop. |
+| `references/design-critique.md` | The scored, re-runnable design-and-copy self-critique the skill runs on its own build before the honesty gate. |
 | `references/design-systems.md` | Escape hatch: locked, re-runnable bespoke design systems, for when the default template genuinely doesn't fit. |
 | `references/design-and-infra.md` | SEO/GEO, structured data, résumé variants, and one-command deploy. |
 | `references/example-run.md` | A full worked run on a subject with nothing verifiable, where the skill refuses and pivots to the truth. |

@@ -26,7 +26,7 @@ Before publish, produce `claims-ledger.md`: one row for **every claim on the sit
 - [ ] Reads in **their voice**, matched to samples. No AI tells (em-dash if banned, no "leverage/robust/seamless/delve", no forced rule-of-three, no identical paragraph rhythm).
 - [ ] Copy self-audit: every visible string re-read; nothing grammatically broken or hallucinated.
 - [ ] **Copy-sensitivity scan**: read every string for unintended alarming or ambiguous connotations - e.g. "shooting" next to "3D printing" reading as firearms, violent idioms, or dog-whistles - and reword to remove the ambiguity. A true, innocent phrase that *reads* wrong to a stranger still costs the person.
-- [ ] Design passed the **critique loop** (not round one). Distinctive and level-appropriate. Verified at 375px.
+- [ ] Design and copy passed the **self-critique** (`references/design-critique.md`), not round one: `design-critique.md` exists, every row passes or is accepted with a stated reason, and the verdict reads "ready for the honesty gate." Distinctive and level-appropriate. Verified at 375px.
 
 ## Privacy & security
 - [ ] **No raw email address on the public site** (visible mailto link, footer text, or in the JSON-LD `email` field) unless the person explicitly asked for it to be public. Route the site's contact CTA to LinkedIn or a form instead. This is a different surface than the résumé PDF, which correctly *does* include the email - a résumé is meant to be handed directly to an employer; the public site (even `noindex`) is reachable by anyone with the link. Don't apply the résumé's rule to the site or vice versa.
